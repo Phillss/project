@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.userMapper">
+
+    <select id="selectAUserByName" resultType="com.Domains.User" parameterType="String">
+    select * from usertable where userName=#{index}
+  </select>
+
+    <select id="selectDistinctByName" parameterType="String" resultType="com.Domains.User">
+        select * from usertable where userName=#{index}
+    </select>
+
+    <update id="updateUser" parameterType="com.Domains.User" >
+        update usertable set userSessionId=#{userSessionId} where userName=#{userName}
+    </update>
+
+
+   <!-- <insert id="insertAUser" parameterType="com.Domain.User">
+        insert into usertable values (#{userId},#{userName},#{userPassword},#{userIdentity},
+        #{userCondition},#{userRegisterTime},#{userRecentRemark},#{userSessionId},
+        #{userImgLocal})
+    </insert>-->
+
+    <!--    <update id="updateUser" parameterType="com.ssm.domain.User">-->
+    <!--        update usertable set user_name=#{user_name} where user_id=#{user_id}-->
+    <!--    </update>-->
+
+    <!--    <delete id="deleteUser" parameterType="String">-->
+    <!--        delete  from usertable where user_id=#{index}-->
+    <!--    </delete>-->
+</mapper>
