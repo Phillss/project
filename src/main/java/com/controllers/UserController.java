@@ -1,5 +1,6 @@
 package com.controllers;
 
+import com.Domains.Messages;
 import com.Domains.User;
 import com.dao.userMapper;
 import org.apache.shiro.SecurityUtils;
@@ -29,19 +30,17 @@ public class UserController {
     }
 
     @RequestMapping(value="login")
-    public String login(User user, Model model, HttpServletRequest request){
-        HttpSession session=request.getSession();
-        String userSession=session.getId();
-        session.setAttribute("userSession",userSession);
-        session.setAttribute("userName",user.getUserName());
-        User userBy=mapper.selectDistinctByName(user.getUserName());
-        if(userBy.getUserPassword().equals(user.getUserPassword())){
-            user.setUserSessionId(userSession);
-            mapper.updateUser(user);
-            return "home";
-        }
-        model.addAttribute("message","用户名或密码错误！");
-        return "login";
+    public String login(User user, Model model){
+        /*String name=user.getUserName();
+        Messages messages =new Messages();
+        if(name=="done"){
+            messages.setValue("done");
+            model.addAttribute("message",messages);
+        }else{
+            model.addAttribute("message",messages);
+        }*/
+        model.addAttribute("message",user.getUserName());
+        return "home";
     }
 
     @RequestMapping("/home")

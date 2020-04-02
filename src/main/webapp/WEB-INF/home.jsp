@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -17,9 +19,28 @@
     <link rel="icon" href="static/img/mark.svg" type="image/x-icon"/>
     <script type="text/javascript" src="static/js/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="static/js/script.js"></script>
-
+    <script type="application/javascript">
+        window.onload=function () {
+            var so=document.getElementById("message");
+            if(so.value=='notice'){
+                f();
+            }
+        }
+    </script>
 </head>
 <body>
+
+<input value="${message}" id="message" style="display: none"/>
+<span id="big-hidden" style="display: none" onclick="f()">
+</span>
+<span id="mid-hidden"  style="display: none">
+    <div id="hidden-top"><div id="sys">系统公告</div></div>
+    <div id="sys-content"><p>
+        ${message}
+    </p></div>
+    <div id="sys-bottom"><button onclick="f()">已阅</button></div>
+</span>
+
 <div id="top-line">
     <div id="top-bend">
         <a href=""><img src="static/img/icons.svg"></a>
