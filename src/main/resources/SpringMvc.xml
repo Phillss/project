@@ -22,7 +22,10 @@
 
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/login"/>
+            <mvc:mapping path="/log/home"/>
+            <mvc:mapping path="/log/count"/>
+            <mvc:mapping path="/log/group"/>
+            <mvc:mapping path="/log/profile"/>
             <bean class="com.intercepters.loginIntercepter"></bean>
         </mvc:interceptor>
     </mvc:interceptors>

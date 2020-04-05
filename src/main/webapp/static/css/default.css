@@ -31,23 +31,23 @@ details summary::-moz-list-bullet{
 summary{
     outline: 0;
 }
-.notice-line a{
-    float: left;
+.notice-a{
+    width: 100%;
 }
 .sups{
+    display: flex;
+    justify-content: center;
     margin-top: 2px;
-    margin-left: 5px;
-    width: 16px;
+    width: 22px;
     height: 18px;
     background-color: #C24343;
     border-radius: 12px;
-    float: left;
-    padding-left: 3px;
-    padding-right: 5px;
     padding-bottom: 3px;
     color: #ffffff;
 }
 .notice-box{
+    display: flex;
+    flex-direction: column;
     margin-top: 5px;
     position: absolute;
     border: 1px solid #D2D2D2;
@@ -66,10 +66,11 @@ summary{
 .notice-line{
     width: 100%;
     height: 30px;
+    display: flex;
+    flex-direction: row;
 }
 .notice-line:hover{
     background-color: #1074e7;
-    /*color: #D2D2D2;*/
 }
 .notice-box a{
     text-decoration: none;

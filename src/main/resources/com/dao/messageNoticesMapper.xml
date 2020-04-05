@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.messageNoticesMapper">
+
+    <!--<select id="selectMessNoti" resultType="com.Domains.messageNotices" parameterType="String">
+    select * from messagenotices where messageTo=#{index}
+  </select>-->
+
+    <select id="selectCount" resultType="Integer" parameterType="String">
+        select count(*) from messagenotices where messageTo=#{index}
+    </select>
+
+    <!--<select id="selectDistinctByName" parameterType="String" resultType="com.Domains.User">
+        select * from usertable where userName=#{index}
+    </select>
+
+    <update id="updateUser" parameterType="com.Domains.User" >
+        update usertable set userSessionId=#{userSessionId} where userName=#{userName}
+    </update>-->
+</mapper>

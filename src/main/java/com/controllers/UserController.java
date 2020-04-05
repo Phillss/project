@@ -1,46 +1,60 @@
 package com.controllers;
 
-import com.Domains.Messages;
+import com.Domains.Notice;
 import com.Domains.User;
+import com.dao.messageNoticesMapper;
+import com.dao.noticeMapper;
 import com.dao.userMapper;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.naming.AuthenticationNotSupportedException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
+@RequestMapping("/log")
 @Controller
 public class UserController {
 
     @Autowired
     userMapper mapper;
 
-    @RequestMapping("index")
+    @Autowired
+    noticeMapper noticemapper;
+
+    @Autowired
+    messageNoticesMapper messageNoticesMapper;
+
+    @RequestMapping("/index")
     public String index(){
         return "login";
     }
 
-    @RequestMapping(value="login")
-    public String login(User user, Model model){
-        /*String name=user.getUserName();
-        Messages messages =new Messages();
-        if(name=="done"){
-            messages.setValue("done");
-            model.addAttribute("message",messages);
+    @RequestMapping(value="/in",method = RequestMethod.POST)
+    public String login(User user, Model model, HttpServletRequest request){
+        HttpSession session=request.getSession();
+        User user_repository=mapper.selectDistinctByName(user.getUserName());
+        if(user_repository!=null){
+            String userPass=user_repository.getUserPassword();
+            if(user.getUserPassword().equals(userPass)){
+                session.setAttribute("username",user.getUserName());
+//                session.setAttribute("identity",user_repository.getUserIdentity());
+                return "home";
+            }else{
+                model.addAttribute("message","用户名或密码错误！");
+                return "login";
+            }
         }else{
-            model.addAttribute("message",messages);
-        }*/
-        model.addAttribute("message",user.getUserName());
-        return "home";
+            model.addAttribute("message","用户名或密码错误！");
+            return "login";
+        }
+
+
+
+
     }
 
     @RequestMapping("/home")

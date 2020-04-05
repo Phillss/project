@@ -7,24 +7,22 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>登录</title>
-    <link rel="stylesheet" type="text/css" href="static/css/log.css" />
-    <link rel="icon" href="static/img/mark.svg" type="image/x-icon"/>
-    <script type="text/javascript" src="static/js/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="static/js/script.js"></script>
-    <script type="application/javascript">
-    </script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/log.css" />
+    <link rel="icon" href="${pageContext.request.contextPath}/static/img/mark.svg" type="image/x-icon"/>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/script.js"></script>
 </head>
 <body>
 <span id="big-hidden" style="display: none" onclick="f()">
 </span>
 <span id="mid-hidden"  style="display: none">
-    <div id="hidden-top">${user.userName}</div>
+    <div id="hidden-top"></div>
 </span>
 <div id="top-none-line"></div>
-<div id="icon"><img src="static/img/mark.svg"></div>
+<div id="icon"><img src="${pageContext.request.contextPath}/static/img/mark.svg"></div>
 <div id="lable"><label>登录评阅网</label></div>
 <div id="login-box">
-    <form action="login" method="post">
+    <form action="${pageContext.request.contextPath}/log/in" method="post">
         <div class="form-group">
             <div class="form-group-label"><label>用户名</label></div>
 

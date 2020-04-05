@@ -1,8 +1,9 @@
 package com.Domains;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable {
     private int userId;
     private String userName;
     private String userPassword;
@@ -12,6 +13,15 @@ public class User {
     private String userRecentRemark;
     private String userSessionId;
     private String userImgLocal;
+    private String userNotices;
+
+    public String getUserNotices() {
+        return userNotices;
+    }
+
+    public void setUserNotices(String userNotices) {
+        this.userNotices = userNotices;
+    }
 
     public int getUserId() {
         return userId;

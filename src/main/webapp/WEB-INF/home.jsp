@@ -13,16 +13,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>总览</title>
-    <link rel="stylesheet" type="text/css" href="static/css/default.css" />
-    <script  src="static/lib/naranja.min.js"></script>
-    <link rel="stylesheet" href="static/lib/naranja.min.css">
-    <link rel="icon" href="static/img/mark.svg" type="image/x-icon"/>
-    <script type="text/javascript" src="static/js/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="static/js/script.js"></script>
+    <%@include file="head.jsp"%>
     <script type="application/javascript">
         window.onload=function () {
-            var so=document.getElementById("message");
-            if(so.value=='notice'){
+            var so=document.getElementById("notice");
+            if(so.value=='undone'){
                 f();
             }
         }
@@ -30,7 +25,7 @@
 </head>
 <body>
 
-<input value="${message}" id="message" style="display: none"/>
+<input value="${notice}" id="notice" style="display: none"/>
 <span id="big-hidden" style="display: none" onclick="f()">
 </span>
 <span id="mid-hidden"  style="display: none">
@@ -40,60 +35,19 @@
     </p></div>
     <div id="sys-bottom"><button onclick="f()">已阅</button></div>
 </span>
-
-<div id="top-line">
-    <div id="top-bend">
-        <a href=""><img src="static/img/icons.svg"></a>
-    </div>
-    <div id="top-search"><form action="remark.html"><input id="top-search-input" type="text" placeholder="快速检索文档……" autocomplete="off"></form>
-    </div>
-    <div id="top-section">
-        <ul>
-            <li><a href="home">总 览</a></li>
-            <li><a href="remark">班 级</a></li>
-            <li><a href="group">小 组</a></li>
-            <li><a href="count">统 计</a></li>
-            <li><a href="profile">设 置</a></li>
-        </ul>
-    </div>
-    <div id="top-notice">
-        <details class="details-over">
-            <summary><img src="static/img/通知.svg"/></summary>
-            <div class="notice-box">
-                <div class="notice-line"><a href="">最近消息</a><div class="sups">2</div></div>
-                <div class="notice-line"><a href="">最近通知</a><div class="sups">20</div></div>
-                <div class="notice-line"><a href="">收到私信</a><div class="sups">12</div></div>
-                <div class="notice-line"><a href="">系统通知</a><div class="sups">18</div></div>
-            </div>
-        </details>
-    </div>
-    <div id="top-add">
-        <details class="details-over">
-            <summary><img src="static/img/添加.svg" /></summary>
-            <div class="notice-box">
-                <div class="notice-line"><a href="">新建XX</a><div class="sups">2</div></div>
-                <div class="notice-line"><a href="">新增XX</a><div class="sups">20</div></div>
-                <div class="notice-line"><a href="">新增XX</a><div class="sups">12</div></div>
-                <div class="notice-line"><a href="">新增XX</a><div class="sups">18</div></div>
-            </div>
-        </details>
-
-    </div>
-    <div id="top-profile"><a href="profile.html" ><img src="static/img/用户.svg" alt=""/></a></div>
-</div>
-
+<%@include file="top.jsp" %>
 <div id="main-1">
     <div class="main-title">最近已批阅：</div>
     <div class="main-homework">
         <table>
             <tr>
-                <td><a href=""><img src="static/img/homeworkDone.svg"></a></td>
-                <td><a href=""><img src="static/img/homeworkDone.svg"></a></td>
-                <td><a href=""><img src="static/img/homeworkDone.svg"></a></td>
-                <td><a href=""><img src="static/img/homeworkDone.svg"></a></td>
-                <td><a href=""><img src="static/img/homeworkDone.svg"></a></td>
-                <td><a href=""><img src="static/img/homeworkDone.svg"></a></td>
-                <td><a href=""><img src="static/img/homeworkDone.svg"></a></td>
+                <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
+                <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
+                <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
+                <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
+                <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
+                <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
+                <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
                 <td>……</td>
             </tr>
             <tr>
@@ -117,13 +71,13 @@
     <div class="main-homework">
         <table>
             <tr>
-                <td><a href=""><img src="static/img/homeworkUndone.svg"></a></td>
-                <td><a href=""><img src="static/img/homeworkUndone.svg"></a></td>
-                <td><a href=""><img src="static/img/homeworkUndone.svg"></a></td>
-                <td><a href=""><img src="static/img/homeworkUndone.svg"></a></td>
-                <td><a href=""><img src="static/img/homeworkUndone.svg"></a></td>
-                <td><a href=""><img src="static/img/homeworkUndone.svg"></a></td>
-                <td><a href=""><img src="static/img/homeworkUndone.svg"></a></td>
+                <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"></a></td>
+                <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"></a></td>
+                <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"></a></td>
+                <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"></a></td>
+                <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"></a></td>
+                <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"></a></td>
+                <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"></a></td>
                 <td>……</td>
             </tr>
             <tr>

@@ -19,16 +19,14 @@ public class loginIntercepter implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session=request.getSession();
-        String userSession=(String)session.getAttribute("userSession");
-        String userName=(String)session.getAttribute("userName");
-        String name=request.getParameter("userName");
-        if(userSession==null){
-            return true;
-        }else{
-            System.out.println(userSession+userName+"已经登录");
-            response.sendRedirect("home");
+        String username=(String)session.getAttribute("username");
+        User user=mapper.selectDistinctByName(username);
+        if(user.getUserIdentity().equals("admin")){
             return true;
         }
+        System.out.println("拦截成功！");
+        response.sendRedirect("index");
+        return false;
 
     }
 
