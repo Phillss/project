@@ -4,19 +4,44 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.messageNoticesMapper">
 
-    <!--<select id="selectMessNoti" resultType="com.Domains.messageNotices" parameterType="String">
-    select * from messagenotices where messageTo=#{index}
-  </select>-->
-
-    <select id="selectCount" resultType="Integer" parameterType="String">
+    <!--查询所有未读消息个数-->
+    <select id="selectAllCountBefore" resultType="Integer" parameterType="String">
         select count(*) from messagenotices where messageTo=#{index}
     </select>
 
-    <!--<select id="selectDistinctByName" parameterType="String" resultType="com.Domains.User">
-        select * from usertable where userName=#{index}
+    <!--查询所有消息_按时间降序排序-->
+    <select id="selectAllMessagesByReceiver" resultType="com.Domains.messageNotices" parameterType="String">
+        select * from messagenotices where messageTo=#{index} order by messageTime desc
     </select>
 
-    <update id="updateUser" parameterType="com.Domains.User" >
-        update usertable set userSessionId=#{userSessionId} where userName=#{userName}
-    </update>-->
+    <!--查询所有通知_按时间降序排序-->
+    <select id="selectAllNoticesByReceiver" resultType="com.Domains.messageNotices" parameterType="String">
+        select * from messagenotices where messageTo=#{index} and messageType='notice' order by messageTime desc
+    </select>
+
+    <!--查询所有反馈_按时间降序排序-->
+    <select id="selectAllFeedbackByReceiver" resultType="com.Domains.messageNotices" parameterType="String">
+        select * from messagenotices where messageTo=#{index} and messageType='feedback' order by messageTime desc
+    </select>
+
+    <!--查询所有广播_按时间降序排序-->
+    <select id="selectAllBroadcastByReceiver" resultType="com.Domains.messageNotices" parameterType="String">
+        select * from messagenotices where messageTo=#{index} and messageType='broadcast' order by messageTime desc
+    </select>
+
+    <!--查询所有系统消息_按时间降序排序-->
+    <select id="selectAllSystemByReceiver" resultType="com.Domains.messageNotices" parameterType="String">
+        select * from messagenotices where messageTo=#{index} and messageType='systemMessage' order by messageTime desc
+    </select>
+
+    <!--查询所有未读通知_按时间降序排序-->
+    <!--<select id="selectBeforeNoticesByReceiver" parameterType="String" resultType="com.Domains.messageNotices">
+        select * from messagenotices where messageTo=#{index} and messageStatus='before' order by messageTime desc
+    </select>-->
+
+    <!--查询所有未读反馈_按时间降序排序-->
+    <!--<select id="selectBeforeFeedbackByReceiver" parameterType="String" resultType="com.Domains.messageNotices">
+        select * from messagenotices where messageTo=#{index} and messageType='broadcast' order by messageTime desc
+    </select>-->
+
 </mapper>

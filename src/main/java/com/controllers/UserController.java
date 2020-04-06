@@ -2,6 +2,7 @@ package com.controllers;
 
 import com.Domains.Notice;
 import com.Domains.User;
+import com.Domains.messageNotices;
 import com.dao.messageNoticesMapper;
 import com.dao.noticeMapper;
 import com.dao.userMapper;
@@ -41,7 +42,11 @@ public class UserController {
             String userPass=user_repository.getUserPassword();
             if(user.getUserPassword().equals(userPass)){
                 session.setAttribute("username",user.getUserName());
-//                session.setAttribute("identity",user_repository.getUserIdentity());
+                model.addAttribute("notice","undone");
+                Notice notice=noticemapper.selectNotice("2020-4-3");
+                model.addAttribute("message",notice);
+                int messagesCount=messageNoticesMapper.selectAllCountBefore(user.getUserName());
+                model.addAttribute("count",messagesCount);
                 return "home";
             }else{
                 model.addAttribute("message","用户名或密码错误！");

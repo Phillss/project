@@ -30,9 +30,13 @@
 </span>
 <span id="mid-hidden"  style="display: none">
     <div id="hidden-top"><div id="sys">系统公告</div></div>
-    <div id="sys-content"><p>
-        ${message}
-    </p></div>
+    <div id="sys-content">
+        <p class="notice-p">${message.noticeTitle}</p>
+        <p class="notice-p">${message.noticeContent}</p>
+        <p class="notice-pf"><div class="notice-file"><img src="${pageContext.request.contextPath}/static/img/WORD.svg"/><a href="" style="text-decoration: none">文件.doc</a> </div></p>
+        <p class="notice-pf"><div class="notice-file"><img src="${pageContext.request.contextPath}/static/img/ECEL.svg"/><a href="" style="text-decoration: none">文件.ecel</a> </div></p>
+        <p class="notice-pf"><div class="notice-file"><img src="${pageContext.request.contextPath}/static/img/综合文档.svg"/><a href="" style="text-decoration: none">文件.zip</a> </div></p>
+    </div>
     <div id="sys-bottom"><button onclick="f()">已阅</button></div>
 </span>
 <%@include file="top.jsp" %>

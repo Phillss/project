@@ -25,10 +25,10 @@
         <details class="details-over">
             <summary><img src="${pageContext.request.contextPath}/static/img/通知.svg"/></summary>
             <div class="notice-box">
-                <div class="notice-line"><a href=""><div class="notice-a">最近消息</div></a><div class="sups">2</div></div>
-                <div class="notice-line"><a href=""><div class="notice-a">最近通知</div></a><div class="sups">20</div></div>
-                <div class="notice-line"><a href=""><div class="notice-a">收到私信</div></a><div class="sups">12</div></div>
-                <div class="notice-line"><a href=""><div class="notice-a">系统通知</div></a><div class="sups">18</div></div>
+                <div class="notice-line"><a href="${pageContext.request.contextPath}/message/all"><div class="notice-a">最近通知</div></a><div class="sups" id="recent">${count}</div></div>
+                <div class="notice-line"><a href=""><div class="notice-a">收到反馈</div></a><div class="sups">${count}</div></div>
+                <div class="notice-line"><a href=""><div class="notice-a">未读公告</div></a><div class="sups">${count}</div></div>
+                <div class="notice-line"><a href=""><div class="notice-a">系统消息</div></a><div class="sups">${count}</div></div>
             </div>
         </details>
     </div>
@@ -36,10 +36,10 @@
         <details class="details-over">
             <summary><img src="${pageContext.request.contextPath}/static/img/添加.svg" /></summary>
             <div class="notice-box">
-                <div class="notice-line"><a href=""><div class="notice-a">新建XX</div></a><div class="sups">2</div></div>
-                <div class="notice-line"><a href=""><div class="notice-a">新增XX</div></a><div class="sups">20</div></div>
-                <div class="notice-line"><a href=""><div class="notice-a">新增XX</div></a><div class="sups">12</div></div>
-                <div class="notice-line"><a href=""><div class="notice-a">新增XX</div></a><div class="sups">18</div></div>
+                <div class="notice-line"><a href=""><div class="notice-a">新建作业</div></a></div>
+                <div class="notice-line"><a href=""><div class="notice-a">发布通知</div></a></div>
+                <div class="notice-line"><a href=""><div class="notice-a">新增XX</div></a></div>
+                <div class="notice-line"><a href=""><div class="notice-a">新增XX</div></a></div>
             </div>
         </details>
 

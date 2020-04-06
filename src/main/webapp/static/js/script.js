@@ -31,3 +31,10 @@ function f() {
         ds.style.display="block";
     }
 }
+
+window.onload=function () {
+        var recent=document.getElementById("recent");
+        if(recent==''){
+            recent.style.display="none";
+        }
+    }

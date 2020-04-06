@@ -1,6 +1,7 @@
 package com.Domains;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class messageNotices implements Serializable {
     private int messageID;
@@ -10,6 +11,15 @@ public class messageNotices implements Serializable {
     private String messageTo;
     private int message_exID;
     private String messageContent;
+    private Date messageTime;
+
+    public Date getMessageTime() {
+        return messageTime;
+    }
+
+    public void setMessageTime(Date messageTime) {
+        this.messageTime = messageTime;
+    }
 
     public String getMessageContent() {
         return messageContent;

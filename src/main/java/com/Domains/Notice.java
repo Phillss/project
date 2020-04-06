@@ -10,6 +10,15 @@ public class Notice  implements Serializable {
     private Date noticeDate;
     private String noticeOwn;
     private String noticeObject;
+    private String noticeType;
+
+    public String getNoticeType() {
+        return noticeType;
+    }
+
+    public void setNoticeType(String noticeType) {
+        this.noticeType = noticeType;
+    }
 
     public int getNoticeID() {
         return noticeID;
