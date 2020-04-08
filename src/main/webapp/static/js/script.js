@@ -32,9 +32,9 @@ function f() {
     }
 }
 
-window.onload=function () {
+/*window.onload=function () {
         var recent=document.getElementById("recent");
         if(recent==''){
             recent.style.display="none";
         }
-    }
+    }*/

@@ -18,4 +18,6 @@ public interface messageNoticesMapper {
 
     List<messageNotices> selectAllSystemByReceiver(String index);
 
+    List<messageNotices> selectAfterTest(String index);
+
 }

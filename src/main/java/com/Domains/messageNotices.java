@@ -12,6 +12,15 @@ public class messageNotices implements Serializable {
     private int message_exID;
     private String messageContent;
     private Date messageTime;
+    private String messageTypeName;
+
+    public String getMessageTypeName() {
+        return messageTypeName;
+    }
+
+    public void setMessageTypeName(String messageTypeName) {
+        this.messageTypeName = messageTypeName;
+    }
 
     public Date getMessageTime() {
         return messageTime;

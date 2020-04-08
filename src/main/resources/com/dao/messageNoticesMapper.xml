@@ -34,6 +34,10 @@
         select * from messagenotices where messageTo=#{index} and messageType='systemMessage' order by messageTime desc
     </select>
 
+    <select id="selectAfterTest" resultType="com.Domains.messageNotices" parameterType="String">
+        select * from messagenotices where messageTo=#{index} and messageType='notice' and messageStatus='after' order by messageTime desc
+    </select>
+
     <!--查询所有未读通知_按时间降序排序-->
     <!--<select id="selectBeforeNoticesByReceiver" parameterType="String" resultType="com.Domains.messageNotices">
         select * from messagenotices where messageTo=#{index} and messageStatus='before' order by messageTime desc
