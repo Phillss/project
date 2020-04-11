@@ -24,31 +24,31 @@
 
                 <li><div class="left-class">
                     <a href="">
-                        <div class="class-img"><img src="static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div></a>
+                        <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div></a>
                 </div></li>
                 <li><div class="left-class">
                     <a href="">
-                        <div class="class-img"><img src="static/img/作业批改.svg"/></div><div class="class-name"><span>计算机162</span></div></a>
+                        <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机162</span></div></a>
                 </div></li>
                 <li><div class="left-class">
                     <a href="">
-                        <div class="class-img"><img src="static/img/作业批改.svg"/></div><div class="class-name"><span>网络161</span></div></a>
+                        <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>网络161</span></div></a>
                 </div></li>
                 <li><div class="left-class">
                     <a href="">
-                        <div class="class-img"><img src="static/img/作业批改.svg"/></div><div class="class-name"><span>网络162</span></div></a>
+                        <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>网络162</span></div></a>
                 </div></li>
                 <li><div class="left-class">
                     <a href="">
-                        <div class="class-img"><img src="static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
+                        <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
                 </div></li>
                 <li><div class="left-class">
                     <a href="">
-                        <div class="class-img"><img src="static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
+                        <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
                 </div></li>
                 <li><div class="left-class">
                     <a href="">
-                        <div class="class-img"><img src="static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
+                        <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
                 </div></li>
             </ul>
         </div>
@@ -57,9 +57,9 @@
 <div id="count-mid">
     <div id="mid-top"></div>
     <div id="mid-label"><label>成绩统计信息(样例)</label></div>
-    <div id="mid-content"><img src="static/img/remarkDemo.png"></div>
+    <div id="mid-content"><img src="${pageContext.request.contextPath}/static/img/remarkDemo.png"></div>
     <div id="mid-label2"><label>趋势图(样例)</label></div>
-    <div id="mid-content2"><img src="static/img/remarkDemo2.png"></div>
+    <div id="mid-content2"><img src="${pageContext.request.contextPath}/static/img/remarkDemo2.png"></div>
 </div>
 <div id="count-right">
     <div id="right-top">
@@ -71,7 +71,7 @@
             点击恢复阶段和佛教的护法几号放假的肌肤</p>
     </div>
     <div id="right-bottom">
-        <img src="static/img/remarkDemo3.png">
+        <img src="${pageContext.request.contextPath}/static/img/remarkDemo3.png">
     </div>
 </div>
 <div id="bottom">

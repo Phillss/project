@@ -31,31 +31,31 @@
                     <ul>
                         <li><div class="left-class">
                             <a href="">
-                                <div class="class-img"><img src="static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div></a>
+                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div></a>
                         </div></li>
                         <li><div class="left-class">
                             <a href="">
-                                <div class="class-img"><img src="static/img/作业批改.svg"/></div><div class="class-name"><span>计算机162</span></div></a>
+                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机162</span></div></a>
                         </div></li>
                         <li><div class="left-class">
                             <a href="">
-                                <div class="class-img"><img src="static/img/作业批改.svg"/></div><div class="class-name"><span>网络161</span></div></a>
+                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>网络161</span></div></a>
                         </div></li>
                         <li><div class="left-class">
                             <a href="">
-                                <div class="class-img"><img src="static/img/作业批改.svg"/></div><div class="class-name"><span>网络162</span></div></a>
+                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>网络162</span></div></a>
                         </div></li>
                         <li><div class="left-class">
                             <a href="">
-                                <div class="class-img"><img src="static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
+                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
                         </div></li>
                         <li><div class="left-class">
                             <a href="">
-                                <div class="class-img"><img src="static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
+                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
                         </div></li>
                         <li><div class="left-class">
                             <a href="">
-                                <div class="class-img"><img src="static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
+                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
                         </div></li>
                     </ul>
                 </div>
@@ -68,12 +68,6 @@
                 <li><div class="question-box"><div class="answer-content"></div></div></li>
                 <li><div class="question-box"><div class="answer-content"></div></div></li>
             </ul>
-            <!--<div class="question-box"><div class="answer-content"><p></p></div></div>-->
-            <!--<div class="question-box"><div class="answer-content"></div></div>
-            <div class="question-box"><div class="answer-content"></div></div>
-            <div class="question-box"><div class="answer-content"></div></div>
-            <div class="question-box"><div class="answer-content"></div></div>
-            <div class="question-box"><div class="answer-content"></div></div>-->
         </div>
         <div id="remark-right">
             <div class="right-first">

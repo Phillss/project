@@ -17,10 +17,16 @@
     <script type="application/javascript">
         window.onload=function () {
             var so=document.getElementById("notice");
+            var b=document.getElementsByClassName("boradcast");
+            var s=document.getElementsByClassName("homework-more");
             if(so.value=='undone'){
                 f();
             }
+            /*if(b.length!=5){
+                s[0].style.display="none";
+            }*/
         }
+
     </script>
 </head>
 <body>
@@ -31,11 +37,11 @@
 <span id="mid-hidden"  style="display: none">
     <div id="hidden-top"><div id="sys">系统公告</div></div>
     <div id="sys-content">
-        <p class="notice-p">${message.noticeTitle}</p>
-        <p class="notice-p">${message.noticeContent}</p>
-        <p class="notice-pf"><div class="notice-file"><img src="${pageContext.request.contextPath}/static/img/WORD.svg"/><a href="" style="text-decoration: none">文件.doc</a> </div></p>
-        <p class="notice-pf"><div class="notice-file"><img src="${pageContext.request.contextPath}/static/img/ECEL.svg"/><a href="" style="text-decoration: none">文件.ecel</a> </div></p>
-        <p class="notice-pf"><div class="notice-file"><img src="${pageContext.request.contextPath}/static/img/综合文档.svg"/><a href="" style="text-decoration: none">文件.zip</a> </div></p>
+        <p class="notice-p">${message.get(1).noticeTitle}</p>
+        <p class="notice-p">${message.get(1).noticeContent}</p>
+        <p class="notice-pf"><div class="notice-file"><img src="${pageContext.request.contextPath}/static/img/WORD.svg"/><a href="" style="text-decoration: none">教学文件.doc</a> </div></p>
+        <p class="notice-pf"><div class="notice-file"><img src="${pageContext.request.contextPath}/static/img/ECEL.svg"/><a href="" style="text-decoration: none">课件.xlsx</a> </div></p>
+        <p class="notice-pf"><div class="notice-file"><img src="${pageContext.request.contextPath}/static/img/synfile.svg"/><a href="" style="text-decoration: none">压缩文件.zip</a> </div></p>
     </div>
     <div id="sys-bottom"><button onclick="f()">已阅</button></div>
 </span>
@@ -51,13 +57,13 @@
                         <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
                         <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
                         <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
-                        <td>……</td>
+                        <td><img style="width: 30px;height: 30px" src="${pageContext.request.contextPath}/static/img/more.svg"/></td>
                     </tr>
                     <tr>
-                        <td>一班</td>
-                        <td>二班</td>
-                        <td>三班</td>
-                        <td>四班</td>
+                        <td>计算机161</td>
+                        <td>计算机162</td>
+                        <td>软件162</td>
+                        <td>网络162</td>
                     </tr>
                 </table>
             </div>
@@ -75,13 +81,13 @@
                         <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"></a></td>
                         <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"></a></td>
                         <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"></a></td>
-                        <td>……</td>
+                        <td><img style="width: 30px;height: 30px" src="${pageContext.request.contextPath}/static/img/more.svg"/></td>
                     </tr>
                     <tr>
-                        <td>一班</td>
-                        <td>二班</td>
-                        <td>三班</td>
-                        <td>四班</td>
+                        <td>给排水161</td>
+                        <td>造价162</td>
+                        <td>材料162</td>
+                        <td>信科161</td>
                     </tr>
                 </table>
             </div>
@@ -93,11 +99,9 @@
         <div id="main-homework-one">
             <div class="main-homework-lable">动态消息</div>
             <ul>
-                <li><a href=""><span>2020年招收攻读硕士学位研究生招生专业目录1</span></a></li>
-                <li><a href=""><span>2020年招收攻读硕士学位研究生招生专业目录1</span></a></li>
-                <li><a href=""><span>2020年招收攻读硕士学位研究生招生专业目录1</span></a></li>
-                <li><a href=""><span>2020年招收攻读硕士学位研究生招生专业目录1</span></a></li>
-                <li><a href=""><span>收攻读硕士学位研究生招生专业目录1</span></a></li>
+                <c:forEach items="${message}" var="m">
+                    <li><a href=""><span>${m.noticeTitle}</span></a></li>
+                </c:forEach>
                 <a href=""><span class="homework-more">更多</span></a>
             </ul>
         </div>
@@ -105,11 +109,9 @@
         <div id="main-homework-two">
             <div class="main-homework-lable">历史公告</div>
             <ul>
-                <li><a href=""><span>2020年度关于推迟我校2020年定向招考博士研究生初试时间的通知1</span></a></li>
-                <li><a href=""><span>2020年度关于推迟我校2020年定向招考博士研究生初试时间的通知1</span></a></li>
-                <li><a href=""><span>2020年度关于推迟我校2020年定向招考博士研究生初试时间的通知1</span></a></li>
-                <li><a href=""><span>2020年度关于推迟我校2020年定向招考博士研究生初试时间的通知1</span></a></li>
-                <li><a href=""><span>2020年度关于推迟我校2020年定向招考博士研究生初试时间的通知1</span></a></li>
+                <c:forEach items="${systemMessage}" var="m">
+                    <li><a href=""><span class="broadcast">${m.noticeTitle}</span></a></li>
+                </c:forEach>
                 <a href=""><span class="homework-more">更多</span></a>
             </ul>
         </div>

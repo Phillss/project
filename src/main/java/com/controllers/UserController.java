@@ -2,7 +2,6 @@ package com.controllers;
 
 import com.Domains.Notice;
 import com.Domains.User;
-import com.Domains.messageNotices;
 import com.dao.messageNoticesMapper;
 import com.dao.noticeMapper;
 import com.dao.userMapper;
@@ -13,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @RequestMapping("/log")
 @Controller
@@ -43,8 +42,10 @@ public class UserController {
             if(user.getUserPassword().equals(userPass)){
                 session.setAttribute("username",user.getUserName());
                 model.addAttribute("notice","undone");
-                Notice notice=noticemapper.selectNotice("2020-4-3");
-                model.addAttribute("message",notice);
+                List<Notice> notices=noticemapper.selectAllNoticesByTime();
+                model.addAttribute("message",notices);
+                List<Notice> noticeSystem=noticemapper.selectAllSystemByTime();
+                model.addAttribute("systemMessage",noticeSystem);
                 int messagesCount=messageNoticesMapper.selectAllCountBefore(user.getUserName());
                 model.addAttribute("count",messagesCount);
                 return "home";

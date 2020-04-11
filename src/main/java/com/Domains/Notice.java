@@ -11,6 +11,15 @@ public class Notice  implements Serializable {
     private String noticeOwn;
     private String noticeObject;
     private String noticeType;
+    private Date noticeDeadLine;
+
+    public Date getNoticeDeadLine() {
+        return noticeDeadLine;
+    }
+
+    public void setNoticeDeadLine(Date noticeDeadLine) {
+        this.noticeDeadLine = noticeDeadLine;
+    }
 
     public String getNoticeType() {
         return noticeType;

@@ -17,15 +17,15 @@
 </head>
 <body>
 <%@include file="top.jsp"%>
-<div id="profile-top"><img src="static/img/profile.svg" alt=""/><div id="name"><label>我的信息</label></div></div>
-<div id="profile-img"><img src="static/img/classmate1.svg" alt=""/></div>
+<div id="profile-top"><img src="${pageContext.request.contextPath}/static/img/profile.svg" alt=""/><div id="name"><label>我的信息</label></div></div>
+<div id="profile-img"><img src="${pageContext.request.contextPath}/static/img/classmate1.svg" alt=""/></div>
 <div id="profile-left">
     <div id="profile-text">
         <div class="profile-line"><label>用户名:   陈大年</label></div>
         <div class="profile-line"><label>用户昵称:   大年</label></div>
         <div class="profile-line"><label>性别:   男</label></div>
         <div class="profile-line"><label>用户类型:   教师</label></div>
-        <div class="profile-line"><div id="profile-user"><label>用户认证:   通过</label></div><div id="profile-pass"><img src="static/img/成功.svg"></div></div>
+        <div class="profile-line"><div id="profile-user"><label>用户认证:   通过</label></div><div id="profile-pass"><img src="${pageContext.request.contextPath}/static/img/成功.svg"></div></div>
         <div class="profile-line"><label>注册日期:   2020-2-2</label></div>
         <div class="profile-line"><label>批阅数量:   100k</label></div>
     </div>
