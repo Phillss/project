@@ -18,15 +18,15 @@ public class loginIntercepter implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        HttpSession session=request.getSession();
+        /*HttpSession session=request.getSession();
         String username=(String)session.getAttribute("username");
         User user=mapper.selectDistinctByName(username);
         if(user.getUserIdentity().equals("admin")){
             return true;
         }
         System.out.println("拦截成功！");
-        response.sendRedirect("index");
-        return false;
+        response.sendRedirect("index");*/
+        return true;
 
     }
 

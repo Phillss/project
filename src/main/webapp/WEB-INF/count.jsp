@@ -21,35 +21,27 @@
         <div id="top-label"><label>班级列表</label></div>
         <div id="top-content">
             <ul>
-
-                <li><div class="left-class">
-                    <a href="">
-                        <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div></a>
-                </div></li>
-                <li><div class="left-class">
-                    <a href="">
-                        <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机162</span></div></a>
-                </div></li>
-                <li><div class="left-class">
-                    <a href="">
-                        <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>网络161</span></div></a>
-                </div></li>
-                <li><div class="left-class">
-                    <a href="">
-                        <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>网络162</span></div></a>
-                </div></li>
-                <li><div class="left-class">
-                    <a href="">
-                        <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
-                </div></li>
-                <li><div class="left-class">
-                    <a href="">
-                        <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
-                </div></li>
-                <li><div class="left-class">
-                    <a href="">
-                        <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
-                </div></li>
+                <li><a href=""><div class="left-class">
+                        <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                </div></a></li>
+                <li><a href=""><div class="left-class">
+                    <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                </div></a></li>
+                <li><a href=""><div class="left-class">
+                    <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                </div></a></li>
+                <li><a href=""><div class="left-class">
+                    <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                </div></a></li>
+                <li><a href=""><div class="left-class">
+                    <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                </div></a></li>
+                <li><a href=""><div class="left-class">
+                    <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                </div></a></li>
+                <li><a href=""><div class="left-class">
+                    <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                </div></a></li>
             </ul>
         </div>
     </div>
@@ -57,9 +49,9 @@
 <div id="count-mid">
     <div id="mid-top"></div>
     <div id="mid-label"><label>成绩统计信息(样例)</label></div>
-    <div id="mid-content"><img src="${pageContext.request.contextPath}/static/img/remarkDemo.png"></div>
+    <div id="mid-content"></div>
     <div id="mid-label2"><label>趋势图(样例)</label></div>
-    <div id="mid-content2"><img src="${pageContext.request.contextPath}/static/img/remarkDemo2.png"></div>
+    <div id="mid-content2"></div>
 </div>
 <div id="count-right">
     <div id="right-top">
@@ -71,7 +63,6 @@
             点击恢复阶段和佛教的护法几号放假的肌肤</p>
     </div>
     <div id="right-bottom">
-        <img src="${pageContext.request.contextPath}/static/img/remarkDemo3.png">
     </div>
 </div>
 <div id="bottom">
@@ -80,5 +71,54 @@
     <div id="cpy">© 2020 ChenChen, Inc.</div>
 
 </div>
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('mid-content2'));
+    var option = {
+        title: {
+            text: ''
+        },
+        tooltip: {},
+        legend: {
+            data:['销量']
+        },
+        xAxis: {
+            data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+        },
+        yAxis: {},
+        series: [{
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        }]
+    };
+    myChart.setOption(option);
+
+    var myChart2 = echarts.init(document.getElementById('mid-content'));
+    var option2 = {
+        series : [
+            {
+                name: '访问来源',
+                type: 'pie',
+                radius: '55%',
+                roseType: 'angle',
+                itemStyle: {
+                    // 设置扇形的颜色
+                    // color: '#c23531',
+                    /*shadowBlur: 200,*/
+                    /*shadowColor: 'rgba(0, 0, 0, 0.5)'*/
+                },
+                data:[
+                    {value:235, name:'视频广告'},
+                    {value:274, name:'联盟广告'},
+                    {value:310, name:'邮件营销'},
+                    {value:335, name:'直接访问'},
+                    {value:400, name:'搜索引擎'}
+                ]
+            }
+        ]
+    };
+    myChart.showLoading();
+    myChart2.setOption(option2);
+</script>
 </body>
 </html>

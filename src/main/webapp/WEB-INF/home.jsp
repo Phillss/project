@@ -26,6 +26,22 @@
                 s[0].style.display="none";
             }*/
         }
+        function getPost() {
+            var s=document.getElementById("name");
+            $.ajax({
+                type: 'POST',
+                url: "${pageContext.request.contextPath}/log/home",
+                contentType: "application/json",
+                data: {"userName":"haha"},//JSON.stringify({"userName":"haha"}),JSON.stringify()必须有,否则只会当做表单的格式提交
+                dataType: "json",//期待返回的数据类型
+                success: function(){
+                    alert("success:");
+                },
+                error:function(data){
+                    alert("error"+data);
+                }
+            });
+        }
 
     </script>
 </head>

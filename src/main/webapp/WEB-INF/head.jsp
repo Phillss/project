@@ -12,3 +12,4 @@
 <link rel="icon" href="${pageContext.request.contextPath}/static/img/mark.svg" type="image/x-icon"/>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/script.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/echarts.js"></script>

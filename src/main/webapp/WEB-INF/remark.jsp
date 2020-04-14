@@ -29,34 +29,30 @@
                 <div id="top-label"><label>班级列表</label></div>
                 <div id="top-content">
                     <ul>
-                        <li><div class="left-class">
-                            <a href="">
-                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div></a>
-                        </div></li>
-                        <li><div class="left-class">
-                            <a href="">
-                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机162</span></div></a>
-                        </div></li>
-                        <li><div class="left-class">
-                            <a href="">
-                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>网络161</span></div></a>
-                        </div></li>
-                        <li><div class="left-class">
-                            <a href="">
-                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>网络162</span></div></a>
-                        </div></li>
-                        <li><div class="left-class">
-                            <a href="">
-                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
-                        </div></li>
-                        <li><div class="left-class">
-                            <a href="">
-                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
-                        </div></li>
-                        <li><div class="left-class">
-                            <a href="">
-                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>软件161</span></div></a>
-                        </div></li>
+                        <li><a href=""><div class="left-class">
+                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                </div></a></li>
+                        <li><a href=""><div class="left-class">
+                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                        </div></a></li>
+                        <li><a href=""><div class="left-class">
+                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                        </div></a></li>
+                        <li><a href=""><div class="left-class">
+                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                        </div></a></li>
+                        <li><a href=""><div class="left-class">
+                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                        </div></a></li>
+                        <li><a href=""><div class="left-class">
+                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                        </div></a></li>
+                        <li><a href=""><div class="left-class">
+                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                        </div></a></li>
+                        <li><a href=""><div class="left-class">
+                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                        </div></a></li>
                     </ul>
                 </div>
             </div>
