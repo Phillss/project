@@ -8,7 +8,7 @@ import java.util.List;
 @Repository
 public interface userMapper {
 
-    List<User> selectAUserByName(String index);
+    User selectAUserByName(String index);
 
     User selectDistinctByName(String index);
 

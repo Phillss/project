@@ -150,3 +150,18 @@ body {
     margin-bottom: 1px;
     float: left;
 }
+.disabledStatus{
+    -webkit-text-fill-color: #ffffff;
+    display: block;
+    width: 80%;
+    height: 34px;
+    margin-left: 30px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #7eaff9;
+    background-image: none;
+    border: 1px solid #7eaff9;
+    border-radius: 4px;
+    cursor: not-allowed;
+}

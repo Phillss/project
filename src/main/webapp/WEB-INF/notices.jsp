@@ -79,7 +79,7 @@
         </div>
         <ul>
             <c:forEach items="${messageNotices}" var="notices">
-            <li class="${notices.messageStatus} textli"><div class="text-box" onclick="f()"><div class="notice-img"><img src="${pageContext.request.contextPath}/static/img/公告.svg"></div><div class="content-t"><div class="content-topic">${notices.messageTypeName}</div><div class="content-bre"><p>${notices.messageContent}</p></div><div class="content-time"><fmt:formatDate value="${notices.messageTime}"/>
+            <li class="${notices.messageStatus} textli"><div class="text-box" onclick="f()"><div class="notice-img"><img src="${pageContext.request.contextPath}/static/img/broadcast.svg"></div><div class="content-t"><div class="content-topic">${notices.messageTypeName}</div><div class="content-bre"><p>${notices.messageContent}</p></div><div class="content-time"><fmt:formatDate value="${notices.messageTime}"/>
 
             </c:forEach>
         </ul>

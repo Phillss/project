@@ -16,11 +16,4 @@
         select * from notice where noticeType='systemMessage' order by noticeDate desc limit 5
     </select>
 
-    <!--<select id="selectDistinctByName" parameterType="String" resultType="com.Domains.User">
-        select * from usertable where userName=#{index}
-    </select>
-
-    <update id="updateUser" parameterType="com.Domains.User" >
-        update usertable set userSessionId=#{userSessionId} where userName=#{userName}
-    </update>-->
 </mapper>

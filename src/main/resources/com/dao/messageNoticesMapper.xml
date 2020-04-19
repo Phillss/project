@@ -5,8 +5,8 @@
 <mapper namespace="com.dao.messageNoticesMapper">
 
     <!--查询所有未读消息个数-->
-    <select id="selectAllCountBefore" resultType="Integer" parameterType="String">
-        select count(*) from messagenotices where messageTo=#{index}
+    <select id="selectAllCountBefore" resultType="Integer" parameterType="com.Domains.messageNotices">
+        select count(*) from messagenotices where messageTo=#{messageTo} and messageType=#{messageType} and messageStatus='before'
     </select>
 
     <!--查询所有消息_按时间降序排序-->
@@ -38,14 +38,5 @@
         select * from messagenotices where messageTo=#{index} and messageType='notice' and messageStatus='after' order by messageTime desc
     </select>
 
-    <!--查询所有未读通知_按时间降序排序-->
-    <!--<select id="selectBeforeNoticesByReceiver" parameterType="String" resultType="com.Domains.messageNotices">
-        select * from messagenotices where messageTo=#{index} and messageStatus='before' order by messageTime desc
-    </select>-->
-
-    <!--查询所有未读反馈_按时间降序排序-->
-    <!--<select id="selectBeforeFeedbackByReceiver" parameterType="String" resultType="com.Domains.messageNotices">
-        select * from messagenotices where messageTo=#{index} and messageType='broadcast' order by messageTime desc
-    </select>-->
 
 </mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.chartMapper">
+
+    <select id="selectByCourseAndClass" resultType="com.Domains.Scores" parameterType="com.Domains.Scores">
+    select * from scores where scoreCourse=#{scoreCourse} AND scoreClass=#{scoreClass}
+  </select>
+
+    <!--<select id="selectDistinctByName" parameterType="String" resultType="com.Domains.Scores">
+        select * from usertable where userName=#{index}
+    </select>
+
+    <update id="updateUser" parameterType="com.Domains.Scores" >
+        update usertable set userSessionId=#{userSessionId} where userName=#{userName}
+    </update>-->
+
+
+
+</mapper>

@@ -1,8 +1,10 @@
 package com.controllers;
 
+import com.Domains.messageBags;
 import com.Domains.messageNotices;
 import com.dao.messageNoticesMapper;
 import com.dao.noticeMapper;
+import com.services.messageServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +24,9 @@ public class messageController {
     @Autowired
     noticeMapper noticemapper;
 
+    @Autowired
+    messageServices messageservices;
+
     @RequestMapping("/all")
     public String defaultMessageAll(HttpSession session, Model model){
         String username=(String)session.getAttribute("username");
@@ -32,6 +37,8 @@ public class messageController {
 
     @RequestMapping("/allNotices")
     public String allNotices(HttpSession session,Model model){
+        messageBags bags =messageservices.getMessageBefore((String)session.getAttribute("username"));
+        model.addAttribute("count",bags);
         String username=(String)session.getAttribute("username");
         List<messageNotices> messages=messagenoticesMapper.selectAllNoticesByReceiver(username);
         model.addAttribute("messageNotices",messages);
@@ -43,6 +50,8 @@ public class messageController {
 
     @RequestMapping("/allFeedback")
     public String allFeedback(HttpSession session,Model model){
+        messageBags bags =messageservices.getMessageBefore((String)session.getAttribute("username"));
+        model.addAttribute("count",bags);
         String username=(String)session.getAttribute("username");
         List<messageNotices> messages=messagenoticesMapper.selectAllFeedbackByReceiver(username);
         model.addAttribute("messageNotices",messages);
@@ -54,6 +63,8 @@ public class messageController {
 
     @RequestMapping("/allBroadcast")
     public String allBroadcast(HttpSession session,Model model){
+        messageBags bags =messageservices.getMessageBefore((String)session.getAttribute("username"));
+        model.addAttribute("count",bags);
         String username=(String)session.getAttribute("username");
         List<messageNotices> messages=messagenoticesMapper.selectAllBroadcastByReceiver(username);
         model.addAttribute("messageNotices",messages);
@@ -65,6 +76,8 @@ public class messageController {
 
     @RequestMapping("/allSystem")
     public String allSystem(HttpSession session,Model model){
+        messageBags bags =messageservices.getMessageBefore((String)session.getAttribute("username"));
+        model.addAttribute("count",bags);
         String username=(String)session.getAttribute("username");
         List<messageNotices> messages=messagenoticesMapper.selectAllSystemByReceiver(username);
         model.addAttribute("messageNotices",messages);

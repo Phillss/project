@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface messageNoticesMapper {
 
-    int selectAllCountBefore(String index);
+    int selectAllCountBefore(messageNotices message);
 
     List<messageNotices> selectAllMessagesByReceiver(String index);
 

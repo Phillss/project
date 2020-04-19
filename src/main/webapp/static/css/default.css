@@ -33,7 +33,8 @@ summary{
     outline: 0;
 }
 .notice-a{
-    width: 100%;
+    width: 70%;
+    margin-left: 5px;
 }
 .sups{
     display: flex;
@@ -60,6 +61,10 @@ summary{
     padding-top: 5px;
     overflow: hidden;
 }
+#profiles{
+    right: 0;
+    height: 70px;
+}
 #top-section a{
     color: black;
     text-decoration: none;
@@ -77,9 +82,9 @@ summary{
     text-decoration: none;
     color: black;
     height: 30px;
-    margin-left: 5px;
+    /*margin-left: 5px;*/
 }
-.notice-line a:hover{
+.notice-line:hover{
     color: #ffffff;
 }
 .container{
@@ -277,8 +282,8 @@ summary{
     padding-left: 0;
 }
 #top-profile img{
-    height: 80%;
-    width: 80%;
+    height: 60%;
+    width: 60%;
 }
 #top-notice{
     height: 60px;
@@ -487,7 +492,6 @@ summary{
     margin-left: auto;
     margin-right: auto;
     background: #f0f1f2;
-    /*float: left;*/
 }
 #Terms{
     margin-left: 48%;
@@ -554,7 +558,11 @@ summary{
 #remark-left ul{
     list-style: none;
 }
-#remark-left li, a{
+#remark-left li{
+    text-decoration: none;
+    margin-top: 10px;
+}
+#remark-left a{
     text-decoration: none;
     margin-top: 10px;
 }
@@ -584,11 +592,12 @@ summary{
 #remark-mid{
     height: 100%;
     width: 50%;
-    /*float: left;*/
     background-color: #f9f9f9;
     box-sizing: border-box;
 }
-
+#remark-mid li{
+    list-style: none;
+}
 
 .right-first{
     width: 23%;
@@ -599,12 +608,57 @@ summary{
     border-radius: 4px;
     box-shadow: rgba(27, 31, 35, 0.15) 0px 1px 15px
 }
-.right-first button{
-    margin-top: 20px;
-    margin-left: 20px;
-    width: 40%;
+#remark-lable{
+    margin-top: 4px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+}
+#remark-details{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 250px;
+    overflow-y: auto;
+}
+#remark-details::-webkit-scrollbar{
+    width: 4px;
+}
+#remark-details::-webkit-scrollbar-thumb{
+    border-radius: 4px;
+    -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
+
+    background: rgba(0,0,0,0.2);
+}
+#remark-details::-webkit-scrollbar-track{
+    -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 0;
+    background: rgba(249,249,249,0.2);
+}
+.modul{
+    display: flex;
+    flex-direction: column;
+    width: 30px;
     height: 30px;
-    float: left;
+}
+#remark-details a{
+    margin-left: 10px;
+    margin-top: 20px;
+    color: inherit;
+}
+.modul span{
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+}
+.modul img{
+    width: 100%;
+    height: 100%;
 }
 #remark-right{
     height: 100%;
@@ -613,7 +667,12 @@ summary{
     float: left;
     box-sizing: border-box;
 }
-
+#count-contain{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
 #count-left{
     width: 25%;
     float: left;
@@ -652,6 +711,9 @@ summary{
 }
 #top-content span{
     color: #1064c6;
+}
+#top-content a{
+    text-decoration: none;
 }
 #count-mid{
     width: 50%;
@@ -809,13 +871,27 @@ summary{
     /*display: flex;*/
     position: static;
     width: 25%;
-    /*height: 70%;*/
+    height: 550px;
     z-index: 2;
-    overflow-y: scroll;
+    overflow-y: auto;
+}
+#group-right::-webkit-scrollbar{
+    width: 4px;
+}
+#group-right::-webkit-scrollbar-thumb{
+    border-radius: 4px;
+    -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
+
+    background: rgba(0,0,0,0.2);
+}
+#group-right::-webkit-scrollbar-track{
+    -webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 0;
+    background: rgba(249,249,249,0.2);
 }
 .user-a{
     padding-top: 5px;
-    padding-left: 30px;
+    padding-left: 0;
     height: 30px;
     width: 100%;
     margin-top: 10px;
@@ -825,6 +901,7 @@ summary{
     background-color: #f3f3f3;
 }
 .user-img{
+    margin-left: 30px;
     height: 30px;
     width: 30px;
     border: 1px solid #D2D2D2;
@@ -878,7 +955,7 @@ summary{
     margin-top: 20px;
     margin-left: 20px;
     width: 200px;
-    height:250px;
+    height:240px;
     border-radius: 4px;
     box-shadow: rgba(27, 31, 35, 0.15) 0px 1px 15px;
 }
@@ -1005,4 +1082,30 @@ summary{
 }
 button{
     outline: none;
+}
+#mains{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+#left-font{
+    font-size: 200px;
+}
+#mains-right{
+    margin-top: 100px;
+}
+#mains-left{
+    margin-top: 50px;
+}
+.content-font{
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top:10px;
+    color: grey;
+}
+.content-font a{
+    text-decoration: none;
+    color: #1074e7;
 }

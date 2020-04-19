@@ -33,6 +33,6 @@
 
     <aop:aspectj-autoproxy/>
 
-
+<import resource="applicationContextShiro.xml"></import>
 
 </beans>

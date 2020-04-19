@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %>
 <%@ page isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -21,13 +23,13 @@
 <div id="profile-img"><img src="${pageContext.request.contextPath}/static/img/classmate1.svg" alt=""/></div>
 <div id="profile-left">
     <div id="profile-text">
-        <div class="profile-line"><label>用户名:   陈大年</label></div>
-        <div class="profile-line"><label>用户昵称:   大年</label></div>
-        <div class="profile-line"><label>性别:   男</label></div>
-        <div class="profile-line"><label>用户类型:   教师</label></div>
-        <div class="profile-line"><div id="profile-user"><label>用户认证:   通过</label></div><div id="profile-pass"><img src="${pageContext.request.contextPath}/static/img/成功.svg"></div></div>
-        <div class="profile-line"><label>注册日期:   2020-2-2</label></div>
-        <div class="profile-line"><label>批阅数量:   100k</label></div>
+        <div class="profile-line"><label>用户名:   ${profile.userName}</label></div>
+        <div class="profile-line"><label>用户昵称:   ${profile.userName}</label></div>
+        <div class="profile-line"><label>性别:   ${profile.userSex}</label></div>
+        <div class="profile-line"><label>用户类型:   ${profile.userIdentity}</label></div>
+        <div class="profile-line"><div id="profile-user"><label>用户认证:   ${profile.userCertify}</label></div><div id="profile-pass"><img src="${pageContext.request.contextPath}/static/img/success.svg"></div></div>
+        <div class="profile-line"><label>注册日期:   <fmt:formatDate value="${profile.userRegisterTime}"/></label></div>
+        <div class="profile-line"><label>批阅数量:   ${profile.userProcess}</label></div>
     </div>
 </div>
 <div id="profile-content">

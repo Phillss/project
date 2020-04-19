@@ -16,6 +16,7 @@
 </head>
 <body>
 <%@include file="top.jsp"%>
+<div id="count-contain">
 <div id="count-left">
     <div id="left-top">
         <div id="top-label"><label>班级列表</label></div>
@@ -50,20 +51,18 @@
     <div id="mid-top"></div>
     <div id="mid-label"><label>成绩统计信息(样例)</label></div>
     <div id="mid-content"></div>
-    <div id="mid-label2"><label>趋势图(样例)</label></div>
-    <div id="mid-content2"></div>
+    <%--<div id="mid-label2"><label>趋势图(样例)</label></div>
+    <div id="mid-content2"></div>--%>
 </div>
 <div id="count-right">
     <div id="right-top">
         <span><label>预警信息</label></span>
-        <p>还是大家纷纷快捷回复技术的好方法会计恒等式
-            的设计手法和监控数据返回数据上看地方九分的
-            大家发挥科技大厦附近扣税的活动经费打发打发
-            的机会房价开始打电话附近的合肥京东方对方的
-            点击恢复阶段和佛教的护法几号放假的肌肤</p>
+        <p>根据多项教学质量数据完成教学评估</p>
     </div>
-    <div id="right-bottom">
-    </div>
+        <%--<div id="right-bottom">
+        </div>--%>
+</div>
+
 </div>
 <div id="bottom">
     <div id="Terms">Terms</div>
@@ -72,53 +71,90 @@
 
 </div>
 <script type="text/javascript">
-    var myChart = echarts.init(document.getElementById('mid-content2'));
-    var option = {
-        title: {
-            text: ''
-        },
-        tooltip: {},
-        legend: {
-            data:['销量']
-        },
-        xAxis: {
-            data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-        },
-        yAxis: {},
-        series: [{
-            name: '销量',
-            type: 'bar',
-            data: [5, 20, 36, 10, 10, 20]
-        }]
-    };
-    myChart.setOption(option);
 
-    var myChart2 = echarts.init(document.getElementById('mid-content'));
-    var option2 = {
-        series : [
-            {
-                name: '访问来源',
-                type: 'pie',
-                radius: '55%',
-                roseType: 'angle',
-                itemStyle: {
-                    // 设置扇形的颜色
-                    // color: '#c23531',
-                    /*shadowBlur: 200,*/
-                    /*shadowColor: 'rgba(0, 0, 0, 0.5)'*/
-                },
-                data:[
-                    {value:235, name:'视频广告'},
-                    {value:274, name:'联盟广告'},
-                    {value:310, name:'邮件营销'},
-                    {value:335, name:'直接访问'},
-                    {value:400, name:'搜索引擎'}
-                ]
+    function getPost() {
+        var s=document.getElementById("name");
+        $.ajax({
+            type: 'POST',
+            url: "${pageContext.request.contextPath}/count/byCourse",
+            contentType: "application/json",
+            data: {"userName":"haha"},//JSON.stringify({"userName":"haha"}),JSON.stringify()必须有,否则只会当做表单的格式提交
+            dataType: "json",//期待返回的数据类型
+            success: function(){
+                alert("success:");
+            },
+            error:function(data){
+                alert("error"+data);
             }
-        ]
-    };
-    myChart.showLoading();
-    myChart2.setOption(option2);
+        });
+    }
+
+    var myChart = echarts.init(document.getElementById('mid-content'));
+
+    setTimeout(function () {
+
+        option = {
+            legend: {},
+            tooltip: {
+                trigger: 'axis',
+                showContent: false
+            },
+            dataset: {
+                source: [
+                    ['product', '2015', '2016', '2017', '2018', '2019', '2020'],
+                    ['Matcha Latte', 41.1, 30.4, 65.1, 53.3, 83.8, 98.7],
+                    ['Milk Tea', 86.5, 92.1, 85.7, 83.1, 73.4, 55.1],
+                    ['Cheese Cocoa', 24.1, 67.2, 79.5, 86.4, 65.2, 82.5],
+                    ['Walnut Brownie', 55.2, 67.1, 69.2, 72.4, 53.9, 39.1]
+                ]
+            },
+            xAxis: {type: 'category'},
+            yAxis: {gridIndex: 0},
+            grid: {top: '55%'},
+            series: [
+                {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+                {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+                {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+                {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+                {
+                    type: 'pie',
+                    id: 'pie',
+                    radius: '30%',
+                    center: ['50%', '25%'],
+                    label: {
+                        formatter: '{b}: {@2012} ({d}%)'
+                    },
+                    encode: {
+                        itemName: 'product',
+                        value: '2012',
+                        tooltip: '2012'
+                    }
+                }
+            ]
+        };
+
+        myChart.on('updateAxisPointer', function (event) {
+            var xAxisInfo = event.axesInfo[0];
+            if (xAxisInfo) {
+                var dimension = xAxisInfo.value + 1;
+                myChart.setOption({
+                    series: {
+                        id: 'pie',
+                        label: {
+                            formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+                        },
+                        encode: {
+                            value: dimension,
+                            tooltip: dimension
+                        }
+                    }
+                });
+            }
+        });
+
+        myChart.setOption(option);
+
+    });
 </script>
 </body>
 </html>

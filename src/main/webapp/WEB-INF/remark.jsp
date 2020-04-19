@@ -30,28 +30,28 @@
                 <div id="top-content">
                     <ul>
                         <li><a href=""><div class="left-class">
-                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
                 </div></a></li>
                         <li><a href=""><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
                         </div></a></li>
                         <li><a href=""><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
                         </div></a></li>
                         <li><a href=""><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
                         </div></a></li>
                         <li><a href=""><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
                         </div></a></li>
                         <li><a href=""><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
                         </div></a></li>
                         <li><a href=""><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
                         </div></a></li>
                         <li><a href=""><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/作业批改.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
                         </div></a></li>
                     </ul>
                 </div>
@@ -67,8 +67,36 @@
         </div>
         <div id="remark-right">
             <div class="right-first">
-                <button id="test" onclick="f()">提示框</button>
-                <button id="test2" onclick="f()">提示框</button>
+                <div id="remark-lable"><span>批阅情况</span></div>
+                <div id="remark-details">
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>1</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>2</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>3</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>4</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>5</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>6</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>7</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>8</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>9</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>10</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>11</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>12</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>13</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
+                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
+                </div>
             </div>
             <div id="right-second"></div>
         </div>

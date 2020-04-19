@@ -14,6 +14,33 @@ public class User implements Serializable {
     private String userSessionId;
     private String userImgLocal;
     private String userNotices;
+    private String userSex;
+    private String userCertify;
+    private int userProcess;
+
+    public String getUserSex() {
+        return userSex;
+    }
+
+    public void setUserSex(String userSex) {
+        this.userSex = userSex;
+    }
+
+    public int getUserProcess() {
+        return userProcess;
+    }
+
+    public void setUserProcess(int userProcess) {
+        this.userProcess = userProcess;
+    }
+
+    public String getUserCertify() {
+        return userCertify;
+    }
+
+    public void setUserCertify(String userCertify) {
+        this.userCertify = userCertify;
+    }
 
     public String getUserNotices() {
         return userNotices;
