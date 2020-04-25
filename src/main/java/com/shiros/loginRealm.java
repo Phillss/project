@@ -2,6 +2,7 @@ package com.shiros;
 
 import com.Domains.User;
 import com.dao.userMapper;
+import org.apache.ibatis.session.SqlSessionException;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -10,10 +11,11 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class loginRealm extends AuthorizingRealm {
+public class loginRealm extends AuthorizingRealm implements Serializable {
 
     @Autowired
     userMapper usermapper;

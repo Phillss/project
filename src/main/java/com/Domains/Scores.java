@@ -1,8 +1,9 @@
 package com.Domains;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Scores {
+public class Scores implements Serializable {
     private String scoreID;
     private String scoreValue;
     private String scoreCourse;

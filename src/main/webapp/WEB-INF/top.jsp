@@ -6,19 +6,26 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false"%>
 <div id="top-line">
     <div id="top-bend">
         <a href=""><img src="${pageContext.request.contextPath}/static/img/icons.svg"></a>
     </div>
-    <div id="top-search"><form action=""><input id="top-search-input" type="text" placeholder="快速检索文档……" autocomplete="off"></form>
+    <div id="top-search"><form action=""><input id="top-search-input" type="text" placeholder="快速检索文档……" oninput="ajaxshow('${pageContext.request.contextPath}')" autocomplete="off"></form>
+    </div>
+    <div id="ajaxshow" style="display: none">
+        <ul id="con">
+                <%--<a href=""><li></li></a>--%>
+        </ul>
     </div>
     <div id="top-section">
         <ul>
-            <li><a href="${pageContext.request.contextPath}/log/home">总 览</a></li>
-            <li><a href="${pageContext.request.contextPath}/remark/">班 级</a></li>
-            <li><a href="${pageContext.request.contextPath}/group/">小 组</a></li>
-            <li><a href="${pageContext.request.contextPath}/count/showDetail">统 计</a></li>
-            <li><a href="font">设 置</a></li>
+            <li><a <c:if test="${status=='home'}" >style="color: #ffffff"</c:if> href="${pageContext.request.contextPath}/log/home">总 览</a></li>
+            <li><a <c:if test="${status=='remark'}" >style="color: #ffffff"</c:if> href="${pageContext.request.contextPath}/remark/">班 级</a></li>
+            <li><a <c:if test="${status=='group'}" >style="color: #ffffff"</c:if> href="${pageContext.request.contextPath}/group/">小 组</a></li>
+            <li><a <c:if test="${status=='detail'}" >style="color: #ffffff"</c:if> href="${pageContext.request.contextPath}/count/showDetail">统 计</a></li>
+            <li><a <c:if test="${status=='question'}" >style="color: #ffffff"</c:if> href="${pageContext.request.contextPath}/repository/">题 库</a></li>
         </ul>
     </div>
     <div id="top-notice">
@@ -37,9 +44,9 @@
             <summary><img src="${pageContext.request.contextPath}/static/img/add.svg" /></summary>
             <div class="notice-box">
                 <a href=""><div class="notice-line"><div class="notice-a">新建作业</div></div></a>
-            <a href=""><div class="notice-line"><div class="notice-a">发布通知</div></div></a>
-                <a href=""><div class="notice-line"><div class="notice-a">新增XX</div></div></a>
-                    <a href=""><div class="notice-line"><div class="notice-a">新增XX</div></div></a>
+            <a href=""><div class="notice-line"><div class="notice-a">(维护中)</div></div></a>
+                <a href=""><div class="notice-line"><div class="notice-a">(维护中)</div></div></a>
+                    <a href=""><div class="notice-line"><div class="notice-a">(维护中)</div></div></a>
             </div>
         </details>
 

@@ -22,9 +22,6 @@
             if(so.value=='undone'){
                 f();
             }
-            /*if(b.length!=5){
-                s[0].style.display="none";
-            }*/
         }
         function getPost() {
             var s=document.getElementById("name");
@@ -42,7 +39,6 @@
                 }
             });
         }
-
     </script>
 </head>
 <body>
@@ -126,8 +122,8 @@
             <div class="main-homework-lable">历史公告</div>
             <ul>
                 <c:forEach items="${systemMessage}" var="m">
-                    <li><a href=""><span class="broadcast">${m.noticeTitle}</span></a></li>
-                </c:forEach>
+                <li><a href=""><span class="broadcast">${m.noticeTitle}</span></a></li>
+            </c:forEach>
                 <a href=""><span class="homework-more">更多</span></a>
             </ul>
         </div>

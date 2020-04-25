@@ -20,6 +20,7 @@ public class remarkController {
     public String process(Model model, HttpSession session){
         messageBags bags =messageservices.getMessageBefore((String)session.getAttribute("username"));
         model.addAttribute("count",bags);
+        model.addAttribute("status","remark");
         return "remark";
     }
 }

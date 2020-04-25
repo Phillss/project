@@ -11,9 +11,10 @@
     <property name="filterChainDefinitions">
         <value>
             /static/**=anon
+            /log/request=anon
             /login.jsp=anon
             /log/in=anon
-            /** =authc,roles[teacher]
+            /** =authc
         </value>
     </property>
 </bean>

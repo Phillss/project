@@ -23,11 +23,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.Serializable;
+import java.util.LinkedList;
 import java.util.List;
 
 @RequestMapping("/log")
 @Controller
-public class UserController {
+public class UserController implements Serializable {
 
     @Autowired
     userMapper mapper;
@@ -65,7 +67,7 @@ public class UserController {
                 session.setAttribute("username",user.getUserName());
                 model.addAttribute("notice","undone");
                 overview=new homePageOverview();
-                overview.prepareAction(model,user,noticemapper,messageservices);
+                overview.prepareAction(model,user.getUserName(),noticemapper,messageservices);
                 return "home";
             }catch (AuthenticationException e){
                 System.out.println("登录失败 "+e.getMessage());
@@ -74,7 +76,7 @@ public class UserController {
             }
         }else{
             overview=new homePageOverview();
-            overview.prepareAction(model,user,noticemapper,messageservices);
+            overview.prepareAction(model,user.getUserName(),noticemapper,messageservices);
             return "home";
         }
     }
@@ -89,13 +91,17 @@ public class UserController {
     @RequestMapping("/home")
     public String home(HttpServletRequest request,Model model){
         String username=(String)request.getSession().getAttribute("username");
-        List<Notice> notices=noticemapper.selectAllNoticesByTime();
-        model.addAttribute("message",notices);
-        List<Notice> noticeSystem=noticemapper.selectAllSystemByTime();
-        model.addAttribute("systemMessage",noticeSystem);
-        messageBags bags =messageservices.getMessageBefore(username);
-        model.addAttribute("count",bags);
+        overview=new homePageOverview();
+        overview.prepareAction(model,username,noticemapper,messageservices);
         return "home";
+    }
+
+    @RequestMapping(value="/request",method = {RequestMethod.POST,RequestMethod.GET})
+    @ResponseBody
+    public Object requests(String searchtitle){
+        System.out.println(searchtitle);
+        List<String> list=mapper.selectTestByname(searchtitle);
+        return list;
     }
 
 

@@ -1,8 +1,9 @@
 package com.Domains;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class messageBags {
+public class messageBags implements Serializable {
     private  int noticesCount;
     private int feedBackCount;
     private int broadcastCount;

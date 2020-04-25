@@ -14,54 +14,32 @@
     <title>消息</title>
     <%@include file="head.jsp"%>
     <script type="application/javascript">
-        function fa() {
-            var alls=document.getElementsByClassName("textli");
-            for(var i=0;i<alls.length;i++){
-                alls[i].style.display='block';
+        function fm(name,content,tim) {
+            var d=document.getElementById("big-hidden-back");
+            var ds=document.getElementById("mid-hidden-center");
+            if(d.style.display=="block"){
+                d.style.display="none";
+                ds.style.display="none";
+            }else{
+                document.getElementById("hidden-top-title").innerText=name;
+                document.getElementById("mid-contents").innerText=content;
+                document.getElementById("inner-time").innerText=tim;
+                d.style.display="block";
+                ds.style.display="block";
             }
-            var va=document.getElementsByClassName("readStatus");
-            va[0].classList.remove("readStatus");
-            var rleft=document.getElementsByClassName("rleft");
-            rleft[0].classList.add("readStatus");
         }
-        function faf() {
-            var befores=document.getElementsByClassName("before");
-            var afters=document.getElementsByClassName("after");
-            for(var i=0;i<befores.length;i++){
-                befores[i].style.display='none';
-            }
-            for(var i=0;i<afters.length;i++){
-                afters[i].style.display='block';
-            }
-            var va=document.getElementsByClassName("readStatus");
-            va[0].classList.remove("readStatus");
-            var rmid=document.getElementsByClassName("rmid");
-            rmid[0].classList.add("readStatus");
-        }
-        function fab() {
-            var afters=document.getElementsByClassName("after");
-            var befores=document.getElementsByClassName("before");
-            for(var i=0;i<afters.length;i++){
-                afters[i].style.display='none';
-            }
-            for(var i=0;i<befores.length;i++){
-                befores[i].style.display='block';
-            }
-            var va=document.getElementsByClassName("readStatus");
-            va[0].classList.remove("readStatus");
-            var rright=document.getElementsByClassName("rright");
-            rright[0].classList.add("readStatus");
-        }
-
     </script>
 </head>
 <body>
-<span id="big-hidden" style="display: none" onclick="f()">
-</span>
-<span id="mid-hidden"  style="display: none">
-    <div id="hidden-top"><lable>详细内容</lable></div>
+<div id="big-hidden-back" style="display: none;" onclick="fm()">
+</div>
+<div id="mid-hidden-center"  style="display: none;">
+    <div id="hidden-top-t"><label>消息详情</label><div id="shut" onclick="fm()"><img src="${pageContext.request.contextPath}/static/img/shutdown.svg"></div></div>
+    <div id="hidden-top-title"></div>
     <div id="mid-contents"></div>
-</span>
+    <div id="hidden-bottom-time"><span id="inner-time"></span></div>
+    <div id="gotit"><button id="knowbutton" onclick="fm()">知道了</button></div>
+</div>
 <%@include file="top.jsp"%>
 <div id="notice-container">
     <div id="notice-left">
@@ -79,7 +57,7 @@
         </div>
         <ul>
             <c:forEach items="${messageNotices}" var="notices">
-            <li class="${notices.messageStatus} textli"><div class="text-box" onclick="f()"><div class="notice-img"><img src="${pageContext.request.contextPath}/static/img/broadcast.svg"></div><div class="content-t"><div class="content-topic">${notices.messageTypeName}</div><div class="content-bre"><p>${notices.messageContent}</p></div><div class="content-time"><fmt:formatDate value="${notices.messageTime}"/>
+            <li class="${notices.messageStatus} textli"><div class="text-box" onclick="fm('${notices.messageTypeName}','${notices.messageContent}','<fmt:formatDate value='${notices.messageTime}'/>')"><div class="notice-img"><img src="${pageContext.request.contextPath}/static/img/broadcast.svg"></div><div class="content-t"><div class="content-topic">${notices.messageTypeName}</div><div class="content-bre">${notices.messageContent}</div><div class="content-time"><fmt:formatDate value="${notices.messageTime}"/>
 
             </c:forEach>
         </ul>

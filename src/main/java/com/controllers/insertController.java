@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("group")
-public class groupController {
+@RequestMapping("/insert")
+public class insertController {
 
     @Autowired
     messageServices messageservices;
 
     @RequestMapping("/")
-    public String processGroup(Model model, HttpSession session){
+    public String insert(Model model, HttpSession session){
         messageBags bags =messageservices.getMessageBefore((String)session.getAttribute("username"));
         model.addAttribute("count",bags);
-        model.addAttribute("status","group");
-        return "group";
+        model.addAttribute("status","remark");
+        return "insert";
     }
 }

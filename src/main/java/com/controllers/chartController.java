@@ -27,6 +27,7 @@ public class chartController {
     public String showDetail(Model model, HttpSession session){
         messageBags bags =messageservices.getMessageBefore((String)session.getAttribute("username"));
         model.addAttribute("count",bags);
+        model.addAttribute("status","detail");
         return "count";
     }
 

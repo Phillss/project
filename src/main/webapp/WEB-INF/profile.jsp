@@ -19,22 +19,27 @@
 </head>
 <body>
 <%@include file="top.jsp"%>
-<div id="profile-top"><img src="${pageContext.request.contextPath}/static/img/profile.svg" alt=""/><div id="name"><label>我的信息</label></div></div>
+<div id="profile-top"><div id="name"><label>我的信息</label></div></div>
 <div id="profile-img"><img src="${pageContext.request.contextPath}/static/img/classmate1.svg" alt=""/></div>
 <div id="profile-left">
     <div id="profile-text">
-        <div class="profile-line"><label>用户名:   ${profile.userName}</label></div>
-        <div class="profile-line"><label>用户昵称:   ${profile.userName}</label></div>
-        <div class="profile-line"><label>性别:   ${profile.userSex}</label></div>
-        <div class="profile-line"><label>用户类型:   ${profile.userIdentity}</label></div>
-        <div class="profile-line"><div id="profile-user"><label>用户认证:   ${profile.userCertify}</label></div><div id="profile-pass"><img src="${pageContext.request.contextPath}/static/img/success.svg"></div></div>
-        <div class="profile-line"><label>注册日期:   <fmt:formatDate value="${profile.userRegisterTime}"/></label></div>
-        <div class="profile-line"><label>批阅数量:   ${profile.userProcess}</label></div>
+        <div class="profile-line"><label>身&ensp;&ensp;&ensp;&ensp;份:&ensp;&ensp;教师</label></div>
+        <div class="profile-line"><label>学&ensp;&ensp;&ensp;&ensp;号:&ensp;&ensp;202002123</label></div>
+        <div class="profile-line"><label>学&ensp;&ensp;&ensp;&ensp;校:&ensp;&ensp;吉林建筑大学</label></div>
+        <div class="profile-line"><label>学&ensp;&ensp;&ensp;&ensp;院:&ensp;&ensp;电气与计算机</label></div>
+        <div class="profile-line"><label>加入年份:&ensp;&ensp;2020-2-2</label></div>
+        <div class="profile-line"><label>批阅数量:&ensp;&ensp;100k</label></div>
     </div>
 </div>
 <div id="profile-content">
-    <div class="contents"></div>
-    <div class="contents"></div>
+    <div class="contents">
+        <div class="inner-detail"><span>用户名：</span>cjg_6538374887</div>
+        <div class="inner-detail"><span>用户状态：</span>正常</div>
+        <div class="inner-detail"><span>姓&ensp;&ensp;名：</span>川建国<span id="identity">认证通过</span></div>
+        <div class="inner-detail"><span>性&ensp;&ensp;别：</span>男</div>
+        <div class="inner-detail"><span>邮&ensp;&ensp;箱：</span><input type="text" name=""><span class="changex"><a href="">更换邮箱</a></span></div>
+        <div class="inner-detail"><span>手&ensp;&ensp;机：</span><input type="text" name=""><span class="changex"><a href="">更换手机</a></span></div>
+    </div>
 </div>
 <!-- <div id="bottom">
      <div id="Terms">Terms</div>

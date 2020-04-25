@@ -13,14 +13,15 @@ import java.util.List;
 @Service
 public class homePageOverview {
 
-    public void prepareAction(Model model, User user,noticeMapper noticemapper,messageServices messageservices){
+    public void prepareAction(Model model, String username,noticeMapper noticemapper,messageServices messageservices){
 
             List<Notice> notices=noticemapper.selectAllNoticesByTime();
             model.addAttribute("message",notices);
             List<Notice> noticeSystem=noticemapper.selectAllSystemByTime();
             model.addAttribute("systemMessage",noticeSystem);
-            messageBags bags =messageservices.getMessageBefore(user.getUserName());
+            messageBags bags =messageservices.getMessageBefore(username);
             model.addAttribute("count",bags);
+            model.addAttribute("status","home");
 
     }
 }

@@ -33,31 +33,33 @@
 <span id="mid-hidden"  style="display: none">
     <div id="hidden-top"></div>
 </span>
-<!--<div class="container">-->
 <%@include file="top.jsp"%>
-<!--</div>-->
-<div id="group-left"></div>
-<div id="group-right">
-    <div class="user-a">我的小组</div>
-    <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
-    <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
-    <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
-    <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
-    <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
-    <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
-    <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
-    <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
-    <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
-    <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
-    <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
-    <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
-    <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
+<div id="group-left">
+    <div id="mygroup">我的小组</div>
+    <div id="grouplist">
+        <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
+        <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
+        <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
+        <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
+        <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
+        <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
+        <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
+        <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
+        <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
+        <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
+        <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
+        <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
+        <div class="user-a"><div class="user-img"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div><div class="user-name">用户</div><div class="user-mess-1"><img src="${pageContext.request.contextPath}/static/img/qurmessage.svg"></div><div class="user-mess-2"><img src="${pageContext.request.contextPath}/static/img/send.svg"></div></div>
+    </div>
 </div>
+<div id="group-right">
+    <div id="right-detail"><div id="pop"><img src="${pageContext.request.contextPath}/static/img/img_wubanqun.png"><span>还没有创建任何小组呦</span></div></div>
+</div>
+
 <div id="bottom">
     <div id="Terms">Terms</div>
     <div id="Privacy">Privacy</div>
     <div id="cpy">© 2020 ChenChen, Inc.</div>
-
 </div>
 </body>
 </html>
