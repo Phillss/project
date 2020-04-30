@@ -21,8 +21,8 @@
             document.getElementById("write2").style.display='block';
             document.getElementById("outer-choose-box").style.display='block';
             document.getElementById("outer-writer-box").style.display='block';
-
         }
+
     </script>
 </head>
 <body>

@@ -38,7 +38,7 @@
         </div>
         <div class="worklist-an"><details>
             <summary class="sumtitle">查看解析</summary>
-            <summary class="sumcon"></summary>
+            <summary class="sumcon">A</summary>
         </details></div>
     </div>
     <div class="worklist">
@@ -52,7 +52,7 @@
         </div>
         <div class="worklist-an"><details>
             <summary class="sumtitle">查看解析</summary>
-            <summary class="sumcon"></summary>
+            <summary class="sumcon">B</summary>
         </details></div>
     </div>
     <div class="worklist">
@@ -66,7 +66,7 @@
         </div>
         <div class="worklist-an"><details>
             <summary class="sumtitle">查看解析</summary>
-            <summary class="sumcon"></summary>
+            <summary class="sumcon">C</summary>
         </details></div>
     </div>
     <div class="worklist">
@@ -80,7 +80,7 @@
         </div>
         <div class="worklist-an"><details>
             <summary class="sumtitle">查看解析</summary>
-            <summary class="sumcon"></summary>
+            <summary class="sumcon">D</summary>
         </details></div>
     </div>
     <div class="worklist">

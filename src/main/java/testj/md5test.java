@@ -20,4 +20,13 @@ public class md5test {
         String pass=MD5salt("123456","chenchen",1024);
         System.out.println(pass);//51cb0e70966577f06942e8e4b3c8ff94
     }
+
+    @Test
+    public void tu(){
+        /*String s="helo ";
+        System.out.println(s+s.length());
+        System.out.println(s.trim()+s.trim().length());*/
+        Object hashed=new SimpleHash("MD5","hello");
+        System.out.println(hashed.toString());
+    }
 }

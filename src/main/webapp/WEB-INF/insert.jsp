@@ -13,6 +13,23 @@
     <%@include file="head.jsp"%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>作业批改</title>
+    <script type="application/javascript">
+        function insertmarkh(){
+            var h=document.getElementById("insertMarkh");
+            h.style.display='none';
+            document.getElementById("insertMarks").style.display='';
+            document.getElementById("line").style.display='none';
+        }
+        function insertmarks(){
+            var h=document.getElementById("insertMarks");
+            h.style.display='none';
+            document.getElementById("insertMarkh").style.display='';
+            document.getElementById("line").style.display='';
+        }
+        function ins(){
+            document.getElementById("insertlist").style.display='';
+        }
+    </script>
 </head>
 <body>
 <%@include file="top.jsp" %>
@@ -53,9 +70,7 @@
                 <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>22</span></div></a>
                 <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>23</span></div></a>
                 <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>24</span></div></a>
-                <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>25</span></div></a>
-                <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>26</span></div></a>
-                <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>27</span></div></a>
+
             </div>
         </div>
         <div id="modeA-like">
@@ -153,10 +168,45 @@
 
     </div>
     <div id="insert-right">
+        <div id="hidden-show"></div>
+        <div id="insertlist" style="display: none">
+
+        </div>
         <div id="right-option">
-            <!-- <div id="model-box"><button id="paper-modul">按试卷批改</button><button id="question-model">按题目批改</button></div> -->
+            <div class="insertMark">
+                <span class="penimg"><img src="${pageContext.request.contextPath}/static/img/greypen.svg" onclick="ins()"></span>
+                <span>插入</span>
+            </div>
+            <div class="insertMark" id="insertMarkh"  onclick="insertmarkh()">
+                <span class="penimg"><img src="${pageContext.request.contextPath}/static/img/hidden.svg"></span>
+                <span>隐藏</span>
+            </div>
+            <div class="insertMark" id="insertMarks" style="display: none"  onclick="insertmarks()">
+                <span class="penimg"><img src="${pageContext.request.contextPath}/static/img/show.svg"></span>
+                <span>显示</span>
+            </div>
+            <div class="insertMark" >
+                <span class="penimg"><img src="${pageContext.request.contextPath}/static/img/auto.svg"></span>
+                <span>自定义</span>
+            </div>
+            <div class="insertMark" >
+                <span class="penimg"><img src="${pageContext.request.contextPath}/static/img/gantan.svg"></span>
+                <span>反馈</span>
+            </div>
         </div>
     </div>
 </div>
+<div id="line">
+    <div id="line-l"></div>
+    <div id="line-c"></div>
+</div>
+<script type="text/javascript">
+    document.getElementById("hidden-show").addEventListener("mouseenter",function(){
+        document.getElementById("right-option").style.right="0";
+    },false);
+    document.getElementById("insert-right").addEventListener("mouseenter",function(){
+        document.getElementById("right-option").style.right="-50px";
+    },false);
+</script>
 </body>
 </html>

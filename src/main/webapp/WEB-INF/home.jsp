@@ -60,7 +60,46 @@
 <%@include file="top.jsp" %>
 <div id="home-container">
     <div id="home-container-left">
+
         <div id="main-1">
+            <div id="main-topl">
+                <div class="rema remcho" id="recrema" >近期批阅</div>
+                <div class="rema" id="addrema" >新增批阅</div>
+            </div>
+            <div id="main-section">
+                <div id="myhome">我的作业</div>
+                <div class="bucl bucho">进行中</div>
+                <div class="bucl">已完成</div>
+            </div>
+            <!-- <div class="main-title">最近已批阅：</div> -->
+            <div class="main-homework">
+                <table>
+                    <tr>
+                        <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
+                        <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
+                        <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
+                        <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
+                        <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
+                        <td><img style="width: 30px;height: 30px" src="${pageContext.request.contextPath}/static/img/more.svg"/></td>
+                    </tr>
+                    <tr>
+                        <td>计算机161</td>
+                        <td>计算机162</td>
+                        <td>软件162</td>
+                        <td>网络162</td>
+                        <td>网络162</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="main-sec2"><div id="chocurr">选修课</div></div>
+            <div class="main-homework">
+                <div id="empty"><img src="${pageContext.request.contextPath}/static/img/null.svg"></div>
+            </div>
+            <!-- <a onclick="f()"><div class="main-button"><label>进入</label></div></a>
+            <a href=""><div class="main-button-cancel"><label>取消</label></div></a> -->
+        </div>
+
+        <%--<div id="main-1">
             <div class="main-title">最近已批阅：</div>
             <div class="main-homework">
                 <table>
@@ -81,10 +120,10 @@
             </div>
             <a onclick="f()"><div class="main-button"><label>进入</label></div></a>
             <a href=""><div class="main-button-cancel"><label>取消</label></div></a>
-        </div>
+        </div>--%>
 
 
-        <div id="main-2">
+        <%--<div id="main-2">
             <div class="main-title">新增未批阅：</div>
             <div class="main-homework">
                 <table>
@@ -105,10 +144,51 @@
             </div>
             <a href=""><div class="main-button"><label>进入</label></div></a>
             <a href=""><div class="main-button-cancel"><label>取消</label></div></a>
-        </div>
+        </div>--%>
     </div>
     <div id="home-container-right">
-        <div id="main-homework-one">
+
+        <div id="person">
+            <div id="personimg">
+                <div id="perpo"><img src="${pageContext.request.contextPath}/static/img/classmate1.svg"></div>
+                <div id="perna">
+                    <span id="pn">川建国</span>
+                    <span id="wel">下午好！</span>
+                </div>
+            </div>
+            <div id="persondeta">
+                <div class="persondiv">
+                    <span class="personcount">2</span>
+                    <span class="personsay">我的班级</span>
+                </div>
+                <div class="persondiv">
+                    <span class="personcount">4</span>
+                    <span class="personsay">我的课程</span>
+                </div>
+            </div>
+        </div>
+        <div id="userp">
+            <div id="userp-i">
+                <img src="${pageContext.request.contextPath}/static/img/userp.svg">
+            </div>
+            <div id="userp-r">
+                <span id="userp-w">用户手册</span>
+                <span id="user-s">您的平台操作小助手</span>
+            </div>
+        </div>
+        <div id="notices-sum">
+            <div class="main-homework-lable">通知</div>
+            <ul>
+                <li><a href=""><span>2020年招收攻读硕士学位研究生招生专业目录1</span></a></li>
+                <li><a href=""><span>2020年招收攻读硕士学位研究生招生专业目录1</span></a></li>
+                <li><a href=""><span>2020年招收攻读硕士学位研究生招生专业目录1</span></a></li>
+                <li><a href=""><span>2020年招收攻读硕士学位研究生招生专业目录1</span></a></li>
+                <li><a href=""><span>2020收攻读硕士学位研究生招生</span></a></li>
+                <a href=""><span class="homework-more">更多</span></a>
+            </ul>
+        </div>
+
+        <%--<div id="main-homework-one">
             <div class="main-homework-lable">动态消息</div>
             <ul>
                 <c:forEach items="${message}" var="m">
@@ -126,7 +206,7 @@
             </c:forEach>
                 <a href=""><span class="homework-more">更多</span></a>
             </ul>
-        </div>
+        </div>--%>
     </div>
 </div>
 
