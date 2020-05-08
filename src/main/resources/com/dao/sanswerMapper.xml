@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.sanswerMapper">
+
+    <select id="selectDisAnsFrOCC" resultType="com.Domains.Sanswer" parameterType="com.Domains.Sanswer">
+        select * from sanswer where sanswerFromW=#{sanswerFromW}  and sanswerOwn=#{sanswerOwn}
+         and sanswerClass=#{sanswerClass}
+  </select>
+    
+    <!--<select id="selectWorkID" parameterType="String" resultType="String">
+        select classAssoAssiWork from classAssoAssi where classAssoAssiClass=#{index}
+    </select>-->
+
+   <!-- <select id="selectDistinctByName" parameterType="String" resultType="com.Domains.User">
+        select * from usertable where userCount=#{index}
+    </select>-->
+
+    <!--<select id="selectTestByname" parameterType="String" resultType="String">
+        select noticeTitle from notice where noticeTitle like "%"#{index}"%" limit 5
+    </select>-->
+
+
+
+</mapper>

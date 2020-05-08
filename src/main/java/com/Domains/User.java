@@ -5,33 +5,38 @@ import java.util.Date;
 
 public class User implements Serializable {
     private int userId;
-    private String userName;
+    private String userCount;
     private String userPassword;
     private String userIdentity;
     private String userCondition;
     private Date userRegisterTime;
-    private String userRecentRemark;
-    private String userSessionId;
     private String userImgLocal;
-    private String userNotices;
-    private String userSex;
     private String userCertify;
-    private int userProcess;
+    private String userPhone;
+    private String userEmail;
 
-    public String getUserSex() {
-        return userSex;
+    public String getUserPhone() {
+        return userPhone;
     }
 
-    public void setUserSex(String userSex) {
-        this.userSex = userSex;
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
     }
 
-    public int getUserProcess() {
-        return userProcess;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setUserProcess(int userProcess) {
-        this.userProcess = userProcess;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getUserCount() {
+        return userCount;
+    }
+
+    public void setUserCount(String userCount) {
+        this.userCount = userCount;
     }
 
     public String getUserCertify() {
@@ -42,28 +47,12 @@ public class User implements Serializable {
         this.userCertify = userCertify;
     }
 
-    public String getUserNotices() {
-        return userNotices;
-    }
-
-    public void setUserNotices(String userNotices) {
-        this.userNotices = userNotices;
-    }
-
     public int getUserId() {
         return userId;
     }
 
     public void setUserId(int userId) {
         this.userId = userId;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public String getUserPassword() {
@@ -98,22 +87,6 @@ public class User implements Serializable {
         this.userRegisterTime = userRegisterTime;
     }
 
-    public String getUserRecentRemark() {
-        return userRecentRemark;
-    }
-
-    public void setUserRecentRemark(String userRecentRemark) {
-        this.userRecentRemark = userRecentRemark;
-    }
-
-    public String getUserSessionId() {
-        return userSessionId;
-    }
-
-    public void setUserSessionId(String userSessionId) {
-        this.userSessionId = userSessionId;
-    }
-
     public String getUserImgLocal() {
         return userImgLocal;
     }
@@ -122,18 +95,4 @@ public class User implements Serializable {
         this.userImgLocal = userImgLocal;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", userName='" + userName + '\'' +
-                ", userPassword='" + userPassword + '\'' +
-                ", userIdentity='" + userIdentity + '\'' +
-                ", userCondition='" + userCondition + '\'' +
-                ", userRegisterTime=" + userRegisterTime +
-                ", userRecentRemark='" + userRecentRemark + '\'' +
-                ", userSessionId='" + userSessionId + '\'' +
-                ", userImgLocal='" + userImgLocal + '\'' +
-                '}';
-    }
 }

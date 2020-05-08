@@ -1,11 +1,7 @@
 package com.controllers;
 
-import com.Domains.Notice;
-import com.Domains.User;
-import com.Domains.messageBags;
-import com.dao.messageNoticesMapper;
-import com.dao.noticeMapper;
-import com.dao.userMapper;
+import com.Domains.*;
+import com.dao.*;
 import com.services.homePageOverview;
 import com.services.messageServices;
 import org.apache.shiro.authc.AuthenticationException;
@@ -46,6 +42,12 @@ public class UserController implements Serializable {
     @Autowired
     homePageOverview overview;
 
+    @Autowired
+    profileMapper profilemapper;
+
+    @Autowired
+    classAssoWorkMapper classassoworkmapper;
+
     @RequestMapping("/index")
     public String index(){
         if(SecurityUtils.getSubject().isAuthenticated()){
@@ -60,14 +62,21 @@ public class UserController implements Serializable {
         Subject currentUser=SecurityUtils.getSubject();
         currentUser.getSession().setTimeout(1800000);//30min
         if(!currentUser.isAuthenticated()){
-            UsernamePasswordToken token=new UsernamePasswordToken(user.getUserName(),user.getUserPassword());
+            UsernamePasswordToken token=new UsernamePasswordToken(user.getUserCount(),user.getUserPassword());
 //            token.setRememberMe(true);
             try {
                 currentUser.login(token);
-                session.setAttribute("username",user.getUserName());
+                int uid=mapper.selectAUserByName(user.getUserCount()).getUserId();
+                String unum=profilemapper.selectUserById(uid).getTeaNum();
+                session.setAttribute("username",user.getUserCount());
+                session.setAttribute("usernum",unum);
                 model.addAttribute("notice","undone");
                 overview=new homePageOverview();
-                overview.prepareAction(model,user.getUserName(),noticemapper,messageservices);
+                overview.prepareAction(model,user.getUserCount(),noticemapper,messageservices);
+                List<Notice> notices=noticemapper.selectAllNoticesByTime();
+                model.addAttribute("moticelist",notices);
+                List<ClassAssoAssi> classAssi=classassoworkmapper.selectWorkingByDesc(unum);
+                model.addAttribute("undonework",classAssi);
                 return "home";
             }catch (AuthenticationException e){
                 System.out.println("登录失败 "+e.getMessage());
@@ -75,8 +84,14 @@ public class UserController implements Serializable {
                 return "login";
             }
         }else{
+            int uid=mapper.selectAUserByName(user.getUserCount()).getUserId();
+            String unum=profilemapper.selectUserById(uid).getTeaNum();
             overview=new homePageOverview();
-            overview.prepareAction(model,user.getUserName(),noticemapper,messageservices);
+            overview.prepareAction(model,user.getUserCount(),noticemapper,messageservices);
+            List<Notice> notices=noticemapper.selectAllNoticesByTime();
+            model.addAttribute("moticelist",notices);
+            List<ClassAssoAssi> classAssi=classassoworkmapper.selectWorkingByDesc(unum);
+            model.addAttribute("undonework",classAssi);
             return "home";
         }
     }
@@ -91,8 +106,13 @@ public class UserController implements Serializable {
     @RequestMapping("/home")
     public String home(HttpServletRequest request,Model model){
         String username=(String)request.getSession().getAttribute("username");
+        String unum=(String)request.getSession().getAttribute("usernum");
         overview=new homePageOverview();
         overview.prepareAction(model,username,noticemapper,messageservices);
+        List<Notice> notices=noticemapper.selectAllNoticesByTime();
+        model.addAttribute("moticelist",notices);
+        List<ClassAssoAssi> classAssi=classassoworkmapper.selectWorkingByDesc(unum);
+        model.addAttribute("undonework",classAssi);
         return "home";
     }
 
@@ -102,6 +122,23 @@ public class UserController implements Serializable {
         System.out.println(searchtitle);
         List<String> list=mapper.selectTestByname(searchtitle);
         return list;
+    }
+
+    @RequestMapping("/workoverview")
+    @ResponseBody
+    public Object workundone(String overview,HttpSession session){
+        String unum=(String)session.getAttribute("usernum");
+        System.out.println(overview);
+        if(overview.equals("done")){
+            List<ClassAssoAssi> workedlist=classassoworkmapper.selectWorkedByDesc(unum);
+            System.out.println("完成");
+            return workedlist;
+        }else{
+            List<ClassAssoAssi> workedlist=classassoworkmapper.selectWorkingByDesc(unum);
+            System.out.println("未完成");
+            return  workedlist;
+        }
+
     }
 
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.profileMapper">
+
+    <select id="selectProfile" resultType="com.Domains.Profile" parameterType="String">
+        select teacher.teaName,usertable.userCondition,usertable.userCertify,
+        teacher.teaSex,usertable.userPhone,usertable.userEmail, usertable.userIdentity,
+        teacher.teaNum,teacher.teaGrade,teacher.teaSchool,usertable.userRegisterTime,usertable.userCount,
+        teacher.teaQuantity from usertable, teacher where
+        usertable.userCount=#{index} and usertable.userId=teacher.teaRefer
+  </select>
+
+    <select id="selectUserById" parameterType="int" resultType="com.Domains.Teacher">
+        select * from teacher where teaRefer=#{index}
+    </select>
+
+
+   <!-- <select id="selectDistinctByName" parameterType="String" resultType="com.Domains.User">
+        select * from usertable where userCount=#{index}
+    </select>-->
+
+    <!--<select id="selectTestByname" parameterType="String" resultType="String">
+        select noticeTitle from notice where noticeTitle like "%"#{index}"%" limit 5
+    </select>-->
+
+
+
+</mapper>

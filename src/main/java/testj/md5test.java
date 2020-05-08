@@ -17,7 +17,7 @@ public class md5test {
 
     @Test
     public void te(){
-        String pass=MD5salt("123456","chenchen",1024);
+        String pass=MD5salt("123456","admin",1024);
         System.out.println(pass);//51cb0e70966577f06942e8e4b3c8ff94
     }
 

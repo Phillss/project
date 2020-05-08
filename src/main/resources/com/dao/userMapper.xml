@@ -5,20 +5,16 @@
 <mapper namespace="com.dao.userMapper">
 
     <select id="selectAUserByName" resultType="com.Domains.User" parameterType="String">
-    select * from usertable where userName=#{index}
+    select * from usertable where userCount=#{index}
   </select>
 
     <select id="selectDistinctByName" parameterType="String" resultType="com.Domains.User">
-        select * from usertable where userName=#{index}
+        select * from usertable where userCount=#{index}
     </select>
 
     <select id="selectTestByname" parameterType="String" resultType="String">
         select noticeTitle from notice where noticeTitle like "%"#{index}"%" limit 5
     </select>
-
-    <update id="updateUser" parameterType="com.Domains.User" >
-        update usertable set userSessionId=#{userSessionId} where userName=#{userName}
-    </update>
 
 
 </mapper>

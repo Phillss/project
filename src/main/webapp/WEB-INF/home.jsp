@@ -23,6 +23,56 @@
                 f();
             }
         }
+
+        function recent() {
+            document.getElementsByClassName("re2")[0].classList.remove("remcho");
+            document.getElementsByClassName("re1")[0].classList.add("remcho");
+        }
+        function newadd(){
+            document.getElementsByClassName("re1")[0].classList.remove("remcho");
+            document.getElementsByClassName("re2")[0].classList.add("remcho");
+        }
+        function working() {
+            document.getElementsByClassName("cl2")[0].classList.remove("bucho");
+            document.getElementsByClassName("cl1")[0].classList.add("bucho");
+            $("#tr1").empty();
+            $("#tr2").empty();
+            $.ajax({
+                type: 'POST',
+                url: "${pageContext.request.contextPath}/log/workoverview",
+                data: {overview:"undone"},
+                dataType: "json",
+                success: function (list) {
+                    $(list).each(
+                        function (i,values) {
+                            $("#tr1").append('<td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>');
+                            $("#tr2").append('<td>'+values.classAssoAssiClass+'</td>');
+                        }
+                    )
+                }
+            });
+        }
+        function workdone() {
+            document.getElementsByClassName("cl1")[0].classList.remove("bucho");
+            document.getElementsByClassName("cl2")[0].classList.add("bucho");
+            $("#tr1").empty();
+            $("#tr2").empty();
+            $.ajax({
+                type: 'POST',
+                url: "${pageContext.request.contextPath}/log/workoverview",
+                data: {overview:"done"},
+                dataType: "json",
+                success: function (list) {
+                $(list).each(
+                        function (i,values) {
+                            $("#tr1").append('<td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"></a></td>');
+                            $("#tr2").append('<td>'+values.classAssoAssiClass+'</td>');
+                        }
+                    )
+                }
+            });
+        }
+
         function getPost() {
             var s=document.getElementById("name");
             $.ajax({
@@ -63,31 +113,27 @@
 
         <div id="main-1">
             <div id="main-topl">
-                <div class="rema remcho" id="recrema" >近期批阅</div>
-                <div class="rema" id="addrema" >新增批阅</div>
+                <div class="rema re1 remcho" id="recrema" onclick="recent()">近期批阅</div>
+                <div class="rema re2" id="addrema" onclick="newadd()">新增批阅</div>
             </div>
             <div id="main-section">
                 <div id="myhome">我的作业</div>
-                <div class="bucl bucho">进行中</div>
-                <div class="bucl">已完成</div>
+                <div class="bucl cl1 bucho" onclick="working()">进行中</div>
+                <div class="bucl cl2" onclick="workdone()">已完成</div>
             </div>
             <!-- <div class="main-title">最近已批阅：</div> -->
             <div class="main-homework">
                 <table>
-                    <tr>
-                        <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
-                        <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
-                        <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
-                        <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
-                        <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
-                        <td><img style="width: 30px;height: 30px" src="${pageContext.request.contextPath}/static/img/more.svg"/></td>
+                    <tr id="tr1">
+                        <c:forEach items="${undonework}" var="undone">
+                            <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
+                        </c:forEach>
+                        <c:if test="${undonework.size()>=5}"><td><img style="width: 30px;height: 30px" src="${pageContext.request.contextPath}/static/img/more.svg"/></td></c:if>
                     </tr>
-                    <tr>
-                        <td>计算机161</td>
-                        <td>计算机162</td>
-                        <td>软件162</td>
-                        <td>网络162</td>
-                        <td>网络162</td>
+                    <tr id="tr2">
+                        <c:forEach items="${undonework}" var="undone">
+                            <td>${undone.classAssoAssiClass}</td>
+                        </c:forEach>
                     </tr>
                 </table>
             </div>
@@ -179,12 +225,10 @@
         <div id="notices-sum">
             <div class="main-homework-lable">通知</div>
             <ul>
-                <li><a href=""><span>2020年招收攻读硕士学位研究生招生专业目录1</span></a></li>
-                <li><a href=""><span>2020年招收攻读硕士学位研究生招生专业目录1</span></a></li>
-                <li><a href=""><span>2020年招收攻读硕士学位研究生招生专业目录1</span></a></li>
-                <li><a href=""><span>2020年招收攻读硕士学位研究生招生专业目录1</span></a></li>
-                <li><a href=""><span>2020收攻读硕士学位研究生招生</span></a></li>
-                <a href=""><span class="homework-more">更多</span></a>
+                <c:forEach var="notices" items="${moticelist}">
+                    <li><a href="${pageContext.request.contextPath}/message/allBroadcast"><span>${notices.noticeTitle}</span></a></li>
+                </c:forEach>
+               <c:if test="${moticelist.size()>=5}"><a href=""><span class="homework-more">更多</span></a></c:if>
             </ul>
         </div>
 
@@ -224,5 +268,7 @@
     <div id="Privacy">Privacy</div>
     <div id="cpy">© 2020 ChenChen, Inc.</div>
 </div>
+<script type="application/javascript">
+</script>
 </body>
 </html>

@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -40,16 +41,23 @@
     <div id="content">
         <div id="remark-left">
             <div id="left-top">
-                <div id="top-label"><label>班级列表(已批阅5/10)</label></div>
+                <div id="top-label"><label>班级列表(已批阅${doneCount}/${classlist.size()})</label></div>
                 <div id="top-content">
                     <ul>
-                        <li><a onclick="gotosecond()"><div class="left-class">
-                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><span class="class-name">计算机161</span><div class="doneImg"><img src="${pageContext.request.contextPath}/static/img/success.svg"></div>
-                </div></a></li>
-                        <li><a onclick="gotosecond()"><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><span class="class-name">计算机161</span><div class="doneImg"><img src="${pageContext.request.contextPath}/static/img/success.svg"></div>
-                        </div></a></li>
-                        <li><a onclick="gotosecond()"><div class="left-class">
+                        <c:forEach items="${classlist}" var="clist">
+                            <li><a onclick="gotosecond()"><div class="left-class">
+                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><span class="class-name">${clist.classAssoAssiClass}</span><div class="doneImg">
+                                <c:if test="${clist.classAssoAssiStatus=='remark'}" >
+                                    <img src="${pageContext.request.contextPath}/static/img/success.svg">
+                                </c:if>
+                                <c:if test="${clist.classAssoAssiStatus=='unremark'}">
+                                    <img src="${pageContext.request.contextPath}/static/img/hint.svg"/>
+                                </c:if>
+                            </div>
+                            </div></a></li>
+                        </c:forEach>
+
+                        <%--<li><a onclick="gotosecond()"><div class="left-class">
                             <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><span class="class-name">计算机161</span><div class="doneImg"><img src="${pageContext.request.contextPath}/static/img/success.svg"></div>
                         </div></a></li>
                         <li><a onclick="gotosecond()"><div class="left-class">
@@ -78,7 +86,7 @@
                         </div></a></li>
                         <li><a ><div class="left-class">
                             <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><span class="class-name">计算机161</span><div class="doneImg"><img src="${pageContext.request.contextPath}/static/img/success.svg"></div>
-                        </div></a></li>
+                        </div></a></li>--%>
 
                     </ul>
                 </div>
@@ -86,13 +94,16 @@
         </div>
         <div id="remark-mid">
 
-            <div id="home-title"><span id="home-title-inner">已发布作业</span><span id="home-count">· 25</span></div>
+            <div id="home-title"><span id="home-title-inner">已发布作业</span><span id="home-count">· ${workcount}</span></div>
             <div id="overview-question">
-                <a href="${pageContext.request.contextPath}/workdetail/"><div class="work-outer">
-                    <div class="work-top"><img src="${pageContext.request.contextPath}/static/img/assign3.svg"></div>
-                    <span class="work-bottom">2020-4期中总结测试</span>
-                </div></a>
-                <a href="${pageContext.request.contextPath}/workdetail/"><div class="work-outer">
+                <c:forEach items="${worklist}" var="worklist" >
+                    <a href="${pageContext.request.contextPath}/workdetail/p?aid=${worklist.assignmentID}&atitle=${worklist.assignmentName}"><div class="work-outer">
+                        <div class="work-top"><img src="${pageContext.request.contextPath}/static/img/assign3.svg"></div>
+                        <span class="work-bottom">${worklist.assignmentName}</span>
+                    </div></a>
+                </c:forEach>
+
+                <%--<a href="${pageContext.request.contextPath}/workdetail/"><div class="work-outer">
                     <div class="work-top"><img src="${pageContext.request.contextPath}/static/img/assign3.svg"></div>
                     <span class="work-bottom">2020-4期中总结测试</span>
                 </div></a>
@@ -122,7 +133,7 @@
                 <a href=""><div class="work-outer">
                     <div class="work-top"><img src="${pageContext.request.contextPath}/static/img/assign3.svg"></div>
                     <span class="work-bottom">2020-4期中总结测试</span>
-                </div></a>
+                </div></a>--%>
 
             </div>
 

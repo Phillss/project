@@ -71,7 +71,7 @@
         <div class="form-group">
             <div class="form-group-label"><label>用户名</label></div>
 
-            <input type="text" id="us" name="userName" class="form-control" placeholder="Email/职工号/手机号"/></div>
+            <input type="text" id="us" name="userCount" class="form-control" placeholder="Email/职工号/手机号"/></div>
         <div class="form-group">
             <div class="form-group-label"><label>密码</label></div>
 

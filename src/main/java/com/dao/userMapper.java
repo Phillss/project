@@ -12,7 +12,5 @@ public interface userMapper{
 
     User selectDistinctByName(String index);
 
-    void updateUser(User user);
-
     List<String> selectTestByname(String index);
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.themeOfOpMapper">
+
+    <select id="selectDistinOption" resultType="com.Domains.Themeofoption" parameterType="int">
+        select * from themeofoption where themeOfOptionId in
+        <foreach collection="array" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+  </select>
+
+
+   <!-- <select id="selectDistinctByName" parameterType="String" resultType="com.Domains.User">
+        select * from usertable where userCount=#{index}
+    </select>-->
+
+    <!--<select id="selectTestByname" parameterType="String" resultType="String">
+        select noticeTitle from notice where noticeTitle like "%"#{index}"%" limit 5
+    </select>-->
+
+
+
+</mapper>

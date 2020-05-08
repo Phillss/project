@@ -14,6 +14,7 @@
             /log/request=anon
             /login.jsp=anon
             /log/in=anon
+            /workdetail/**=anon
             /** =authc
         </value>
     </property>

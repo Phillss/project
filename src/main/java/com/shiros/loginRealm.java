@@ -25,7 +25,7 @@ public class loginRealm extends AuthorizingRealm implements Serializable {
         User user=(User)principalCollection.getPrimaryPrincipal();
         SimpleAuthorizationInfo authorizationInfo=new SimpleAuthorizationInfo();
         Set<String> set=new HashSet<String>();
-        User repositoryUser=usermapper.selectAUserByName(user.getUserName());
+        User repositoryUser=usermapper.selectAUserByName(user.getUserCount());
         String role=repositoryUser.getUserIdentity();
 //        String permission=repositoryUser.getUserCondition();
         authorizationInfo.addRole(role);
@@ -45,7 +45,7 @@ public class loginRealm extends AuthorizingRealm implements Serializable {
         String hashedCredentials=userRepository.getUserPassword();
         ByteSource salt=ByteSource.Util.bytes(username);
         User user=new User();
-        user.setUserName(username);
+        user.setUserCount(username);
         SimpleAuthenticationInfo authenticationInfo=new SimpleAuthenticationInfo(user,hashedCredentials,salt,getName());
         return authenticationInfo;
     }

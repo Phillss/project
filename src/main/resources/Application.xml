@@ -34,7 +34,7 @@
         <property name="basePackage" value="com.dao"></property>
     </bean>
 
-    <aop:aspectj-autoproxy/>
+
 
 <import resource="applicationContextShiro.xml"></import>
 
