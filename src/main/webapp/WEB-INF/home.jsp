@@ -228,7 +228,7 @@
                 <c:forEach var="notices" items="${moticelist}">
                     <li><a href="${pageContext.request.contextPath}/message/allBroadcast"><span>${notices.noticeTitle}</span></a></li>
                 </c:forEach>
-               <c:if test="${moticelist.size()>=5}"><a href=""><span class="homework-more">更多</span></a></c:if>
+               <c:if test="${moticelist.size()>=5}"><a href="${pageContext.request.contextPath}/message/allBroadcast"><span class="homework-more">更多</span></a></c:if>
             </ul>
         </div>
 

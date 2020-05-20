@@ -12,5 +12,9 @@ public interface classAssoWorkMapper {
 
     List<ClassAssoAssi> selectWorkedByDesc(String index);
 
-    List<ClassAssoAssi> selectAllClass(String index);
+    List<String> selectAllClass(String index);
+
+    List<ClassAssoAssi> selectClassWorks(ClassAssoAssi classassoassi);
+
+    ClassAssoAssi remarkOverView(int index);
 }

@@ -1202,7 +1202,7 @@ summary{
     align-items: center;
     margin-left: 20px;
 }
-#paper-studentn{
+.paper-studentn{
     height: 20px;
     color: grey;
     font-size:16px;
@@ -1754,6 +1754,10 @@ summary{
     padding-left: 50px;
 }
 #top-content li:hover{
+    background-color: #f3f3f3;
+    /*border-left: 2px solid red;*/
+}
+.classhove{
     background-color: #f3f3f3;
     border-left: 2px solid red;
 }

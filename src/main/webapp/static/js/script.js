@@ -93,7 +93,7 @@ function ajaxshow(paths){
             )
         },
         error:function(){
-            alert("error");
+
         }
     });
 
@@ -101,5 +101,7 @@ function ajaxshow(paths){
         s.style.display='none';
     }
 }
+
+
 
 

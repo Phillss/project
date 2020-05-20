@@ -55,8 +55,6 @@ public class workDetailController {
 
     @RequestMapping("/p")
     public String work(Model model, HttpSession session,String aid,String atitle){
-        System.out.println(aid);
-        System.out.println(atitle);
         messageBags bags =messageservices.getMessageBefore((String)session.getAttribute("username"));
         Assignment assignment=assignmentmapper.selectAssignById(Integer.parseInt(aid));
         String[] assiOptionNum=assignment.getAssignmentChoice().split(",");

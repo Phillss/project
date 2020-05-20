@@ -117,9 +117,9 @@ public class UserController implements Serializable {
     }
 
     @RequestMapping(value="/request",method = {RequestMethod.POST,RequestMethod.GET})
-    @ResponseBody
+    @ResponseBody        //异步检索
     public Object requests(String searchtitle){
-        System.out.println(searchtitle);
+        /*System.out.println(searchtitle);*/
         List<String> list=mapper.selectTestByname(searchtitle);
         return list;
     }

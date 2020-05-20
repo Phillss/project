@@ -47,7 +47,7 @@
         <div class="right-first">
             <div id="remark-lable"><span>批阅情况</span></div>
             <div id="remark-details">
-                <a href="#1"><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>1</span></div></a>
+                <%--<a href="#1"><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>1</span></div></a>
                 <a href="#2"><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>2</span></div></a>
                 <a onclick="fu(3)"><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>3</span></div></a>
                 <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>4</span></div></a>
@@ -70,7 +70,7 @@
                 <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>21</span></div></a>
                 <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>22</span></div></a>
                 <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>23</span></div></a>
-                <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>24</span></div></a>
+                <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>24</span></div></a>--%>
 
             </div>
         </div>
@@ -79,6 +79,7 @@
             <div class="likecondi">
                 <div class="like-left">题目2</div>
                 <div class="like-right">
+                    <%--<div class="likeuser"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div>
                     <div class="likeuser"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div>
                     <div class="likeuser"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div>
                     <div class="likeuser"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div>
@@ -93,8 +94,7 @@
                     <div class="likeuser"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div>
                     <div class="likeuser"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div>
                     <div class="likeuser"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div>
-                    <div class="likeuser"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div>
-                    <div class="likeuser"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div>
+                    <div class="likeuser"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div>--%>
                 </div>
             </div>
             <div class="likecondi">
@@ -132,19 +132,22 @@
     </div>
 
     <div id="insert-mid">
-        <div id="paper-name"><span>——2020-2期中测验——</span></div>
-        <div id="paper-studentn"><span>· 计算机161 · 川建国</span></div>
-        <div class="model-A">
-            <a id="1"></a>
-            <div class="questionOption">1、简答题：</div>
-            <div class="modelA-title">&ensp;&ensp;&ensp;几点看法和艰苦大师傅上课时间地点和反抗封建时代回复点看法和艰苦大师傅上课时间地点和反抗封建时代回复点看法和艰苦大师傅傅上课时间地点和反傅上课时间地点和反傅上课时间地点和反上课时间地点和傅上课时间地点和傅上课时间地点和反抗封建时代回复点看法和艰。</div>
-            <div class="modelA-lti">回答：</div>
-            <div class="modelA-answer">
-                &ensp;&ensp;&ensp;是冬季房交会第三方上课时间大家发挥科技上的上的回复上课是假的回复空间苦大师傅上课时间地点和反抗封建时代回复大师傅上课时间地点和反抗封建时代回大师傅上傅上课时间地点和反傅上课时间地点和反傅上课时间地点和反傅上课时间地点和反课时间傅傅上课时间地点和反傅上课时间地点和反傅上课时间地点和反傅上课时间地点和反上课时间地点和反傅上课时间地点和间地点和反抗封建时代回复大师傅上课时间地点和反傅上课时间地
+        <div id="paper-name"><span>——${paper}——</span></div>
+        <c:forEach var="ll" items="${lists}" varStatus="lls">
+            <div class="paper-studentn"><span>· ${ll.sanswerClass} · ${ll.stuName}</span></div>
+            <div class="model-A">
+                <a id="${lls.index}"></a>
+                <div class="questionOption">${lls.index+1}、简答题：</div>
+                <div class="modelA-title">&ensp;${ll.shortQuestionTitle}</div>
+                <div class="modelA-lti">回答：</div>
+                <div class="modelA-answer">
+                    &ensp;&ensp;&ensp;${ll.sanswerContent}
+                </div>
+                <div class="modelA-exam"><span class="correct">正确</span><span class="wrong">错误</span><span class="star"><img src="${pageContext.request.contextPath}/static/img/star.svg"></span></div>
             </div>
-            <div class="modelA-exam"><span class="correct">正确</span><span class="wrong">错误</span><span class="star"><img src="${pageContext.request.contextPath}/static/img/star.svg"></span></div>
-        </div>
+        </c:forEach>
 
+        <%--<div class="paper-studentn"><span>· 计算机161 · 川建国</span></div>
         <div class="model-A">
             <a id="2"></a>
             <div class="questionOption">2、简答题：</div>
@@ -155,7 +158,7 @@
             </div>
             <div class="modelA-exam"><span class="correct">正确</span><span class="wrong">错误</span><span class="star"><img src="${pageContext.request.contextPath}/static/img/unstar.svg"></span></div>
         </div>
-
+        <div class="paper-studentn"><span>· 计算机161 · 川建国</span></div>
         <div class="model-A">
             <a id="3"></a>
             <div class="questionOption">3、简答题：</div>
@@ -165,7 +168,7 @@
                 &ensp;&ensp;&ensp;是冬季房交会第三方上课时间大家发挥科技上的上的回复上课是假的回复空间苦大师傅上课时间地点和反抗封建时代回复大师傅上课时课时间地点和反傅上课时间地点和反傅上课时间地点和反傅上课时间地点和反上课时间地点和反傅上课时间地点和反师傅上课时间地点和反抗封建时代回复大师傅上课时间地点和反傅上课时间地
             </div>
             <div class="modelA-exam"><span class="correct">正确</span><span class="wrong">错误</span><span class="star"><img src="${pageContext.request.contextPath}/static/img/star.svg"></span></div>
-        </div>
+        </div>--%>
 
     </div>
     <div id="insert-right">
@@ -197,10 +200,10 @@
         </div>
     </div>
 </div>
-<div id="line">
+<%--<div id="line">
     <div id="line-l"></div>
     <div id="line-c"></div>
-</div>
+</div>--%>
 <script type="text/javascript">
     document.getElementById("hidden-show").addEventListener("mouseenter",function(){
         document.getElementById("right-option").style.right="0";

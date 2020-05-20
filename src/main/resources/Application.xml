@@ -19,10 +19,10 @@
         <property name="jdbcUrl" value="jdbc:mysql://175.24.82.118:3306/cc_use?&amp;useSSL=false&amp;serverTimezone=UTC"/>
         <property name="user" value="chenchen"/>
         <property name="password" value="618HelloWorld."/>
-        <property name="acquireIncrement" value="5"/>
+        <!--<property name="acquireIncrement" value="5"/>
         <property name="initialPoolSize" value="10"/>
         <property name="minPoolSize" value="5"/>
-        <property name="maxPoolSize" value="20"/>
+        <property name="maxPoolSize" value="20"/>-->
     </bean>
 
     <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">

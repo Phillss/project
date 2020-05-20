@@ -22,16 +22,20 @@
           ORDER BY classAssoAssiLastModiTime desc LIMIT 5
     </select>
 
-    <select id="selectAllClass" resultType="com.Domains.ClassAssoAssi" parameterType="String">
-        select * from classAssoAssi where classAssoPub=#{index} ORDER BY classAssoAssiLastModiTime desc
+    <select id="selectAllClass" resultType="String" parameterType="String">
+        SELECT DISTINCT classAssoAssiClass FROM classAssoAssi where classAssoPub=#{index}
     </select>
-   <!-- <select id="selectDistinctByName" parameterType="String" resultType="com.Domains.User">
-        select * from usertable where userCount=#{index}
-    </select>-->
 
-    <!--<select id="selectTestByname" parameterType="String" resultType="String">
-        select noticeTitle from notice where noticeTitle like "%"#{index}"%" limit 5
-    </select>-->
+    <select id="selectClassWorks" resultType="com.Domains.ClassAssoAssi" parameterType="com.Domains.ClassAssoAssi">
+        select classAssoAssi.classAssoAssiID,assignment.assignmentName AS classAssoAssiWorkName  from classAssoAssi,assignment
+        where classAssoAssiClass=#{classAssoAssiClass} and classAssoPub=#{classAssoPub} and assignmentID=classAssoAssiWork
+         ORDER BY classAssoAssiLastModiTime desc
+    </select>
+
+    <select id="remarkOverView" resultType="com.Domains.ClassAssoAssi" parameterType="int">
+            select * from classAssoAssi where classAssoAssiID=#{index}
+    </select>
+
 
 
 

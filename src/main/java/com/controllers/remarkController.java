@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -37,19 +38,24 @@ public class remarkController {
         String unum=(String)session.getAttribute("usernum");
         messageBags bags =messageservices.getMessageBefore(username);
         List<Assignment> list=assignmentmapper.selectAssignFromPb(unum);
-        List<ClassAssoAssi> classList=classassoworkmapper.selectAllClass(unum);
-        int doneCount=0;
-        for(ClassAssoAssi c:classList){
-            if (c.getClassAssoAssiStatus().equals("remark")){
-                doneCount++;
-            }
-        }
+        List<String> classList=classassoworkmapper.selectAllClass(unum);
         model.addAttribute("count",bags);
         model.addAttribute("status","remark");
         model.addAttribute("worklist",list);
         model.addAttribute("workcount",list.size());
         model.addAttribute("classlist",classList);
-        model.addAttribute("doneCount",doneCount);
         return "remark";
     }
+
+    @RequestMapping("/classwlist")
+    @ResponseBody
+    public Object classWorkList(String classname,HttpSession session){
+        String userNum=(String)session.getAttribute("usernum");
+        ClassAssoAssi classassoassi=new ClassAssoAssi();
+        classassoassi.setClassAssoAssiClass(classname);
+        classassoassi.setClassAssoPub(userNum);
+        List<ClassAssoAssi> classassoass=classassoworkmapper.selectClassWorks(classassoassi);
+        return classassoass;
+    }
+
 }

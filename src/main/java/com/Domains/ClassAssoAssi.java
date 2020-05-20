@@ -7,6 +7,7 @@ public class ClassAssoAssi {
     private String classAssoAssiClass;
     private String classAssoAssiGrade;
     private String classAssoAssiWork;
+    private String classAssoAssiWorkName;
     private String classAssoPub;
     private Date classAssoAssiPbTime;
     private Date classAssoAssiDeadLine;
@@ -14,6 +15,14 @@ public class ClassAssoAssi {
     private String classAssoAssiStatus;
     private int classAssoAssiClNum;
     private int classAssoAssiSubNum;
+
+    public String getClassAssoAssiWorkName() {
+        return classAssoAssiWorkName;
+    }
+
+    public void setClassAssoAssiWorkName(String classAssoAssiWorkName) {
+        this.classAssoAssiWorkName = classAssoAssiWorkName;
+    }
 
     public Date getClassAssoAssiLastModiTime() {
         return classAssoAssiLastModiTime;

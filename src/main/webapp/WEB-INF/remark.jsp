@@ -15,14 +15,49 @@
     <title>班级详情</title>
    <%@include file="head.jsp"%>
     <script type="application/javascript">
-        function gotosecond() {
+
+
+
+
+        function goremark(id,name) {
             document.getElementById("home-title").style.display='none';
             document.getElementById("overview-question").style.display='none';
-            document.getElementById("chose1").style.display='block';
-            document.getElementById("write2").style.display='block';
-            document.getElementById("outer-choose-box").style.display='block';
-            document.getElementById("outer-writer-box").style.display='block';
+            document.getElementById("chose1").style.display='';
+            document.getElementById("write2").style.display='';
+            document.getElementById("outer-choose-box").style.display='';
+            document.getElementById("outer-writer-box").style.display='';
+            var vc=document.getElementsByClassName("work-bottom")[0].innerHTML;
+            $.ajax({
+                type: 'POST',
+                url: "${pageContext.request.contextPath}/insert/overview",
+                data: {selid:id,pname:name},
+                dataType: "json",
+                success: function (list) {
+                    $("#questionb1").empty();
+                    $("#questionb2").empty();
+                    document.getElementById("remarkcount1").innerText="· "+list.countc+" 题";
+                    document.getElementById("remarkcount2").innerText="· "+list.counts+" 题";
+                    document.getElementById("numbSum1").innerText=list.subnm+"/"+list.sumnum;
+                    document.getElementById("numbSum2").innerText=list.subnm+"/"+list.sumnum;
+                    var is;
+                    var js;
+                    for(var i=0;i<list.questQc.length;++i){
+                        is=i+1;
+                        $("#questionb1").append('<a href="${pageContext.request.contextPath}/insert/single?type=c&pid='+list.questQc[i]+'&pname='+vc+'"><div class="outer"><div class="num-co">'+is+'</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>');
+                    }
+                    for(var j=0;j<list.questQs.length;++j){
+                        js=j+1;
+                        $("#questionb2").append('<a href="${pageContext.request.contextPath}/insert/single?type=s&pid='+list.questQs[j]+'&pname='+name+'&pcs='+vc+'"><div class="outere-writerquest">' +
+                        '<div class="count-number">'+js+'</div>' +
+                        '<div class="writerquestion-box"><div class="writer-top"><span>10%</span>正确</div><div class="writer-bottom">批改</div></div>' +
+                        '</div>');
+                    }
+
+                },
+            });
         }
+
+
 
     </script>
 </head>
@@ -41,53 +76,15 @@
     <div id="content">
         <div id="remark-left">
             <div id="left-top">
-                <div id="top-label"><label>班级列表(已批阅${doneCount}/${classlist.size()})</label></div>
+                <div id="top-label"><label>班级列表</label></div>
                 <div id="top-content">
                     <ul>
-                        <c:forEach items="${classlist}" var="clist">
-                            <li><a onclick="gotosecond()"><div class="left-class">
-                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><span class="class-name">${clist.classAssoAssiClass}</span><div class="doneImg">
-                                <c:if test="${clist.classAssoAssiStatus=='remark'}" >
-                                    <img src="${pageContext.request.contextPath}/static/img/success.svg">
-                                </c:if>
-                                <c:if test="${clist.classAssoAssiStatus=='unremark'}">
-                                    <img src="${pageContext.request.contextPath}/static/img/hint.svg"/>
-                                </c:if>
+                        <c:forEach items="${classlist}" var="clist" varStatus="shi">
+                            <li class="lis ${shi.index}"><a onclick="gotosecond('${clist}','${shi.index}')"><div class="left-class">
+                                <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><span class="class-name" title="${clist}">${clist}</span><div class="doneImg">
                             </div>
                             </div></a></li>
                         </c:forEach>
-
-                        <%--<li><a onclick="gotosecond()"><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><span class="class-name">计算机161</span><div class="doneImg"><img src="${pageContext.request.contextPath}/static/img/success.svg"></div>
-                        </div></a></li>
-                        <li><a onclick="gotosecond()"><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><span class="class-name">计算机161</span><div class="doneImg"><img src="${pageContext.request.contextPath}/static/img/hint.svg"></div>
-                        </div></a></li>
-                        <li><a onclick="gotosecond()"><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><span class="class-name">计算机161</span><div class="doneImg"><img src="${pageContext.request.contextPath}/static/img/hint.svg"></div>
-                        </div></a></li>
-                        <li><a onclick="gotosecond()"><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><span class="class-name">计算机161</span><div class="doneImg"><img src="${pageContext.request.contextPath}/static/img/success.svg"></div>
-                        </div></a></li>
-                        <li><a onclick="gotosecond()"><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><span class="class-name">计算机161</span><div class="doneImg"><img src="${pageContext.request.contextPath}/static/img/hint.svg"></div>
-                        </div></a></li>
-                        <li><a ><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><span class="class-name">计算机161</span><div class="doneImg"><img src="${pageContext.request.contextPath}/static/img/alert.svg"></div>
-                        </div></a></li>
-                        <li><a ><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><span class="class-name">计算机161</span><div class="doneImg"><img src="${pageContext.request.contextPath}/static/img/hint.svg"></div>
-                        </div></a></li>
-                        <li><a ><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><span class="class-name">计算机161</span><div class="doneImg"><img src="${pageContext.request.contextPath}/static/img/success.svg"></div>
-                        </div></a></li>
-                        <li><a ><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><span class="class-name">计算机161</span><div class="doneImg"><img src="${pageContext.request.contextPath}/static/img/success.svg"></div>
-                        </div></a></li>
-                        <li><a ><div class="left-class">
-                            <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><span class="class-name">计算机161</span><div class="doneImg"><img src="${pageContext.request.contextPath}/static/img/success.svg"></div>
-                        </div></a></li>--%>
-
                     </ul>
                 </div>
             </div>
@@ -102,133 +99,31 @@
                         <span class="work-bottom">${worklist.assignmentName}</span>
                     </div></a>
                 </c:forEach>
-
-                <%--<a href="${pageContext.request.contextPath}/workdetail/"><div class="work-outer">
-                    <div class="work-top"><img src="${pageContext.request.contextPath}/static/img/assign3.svg"></div>
-                    <span class="work-bottom">2020-4期中总结测试</span>
-                </div></a>
-                <a href="${pageContext.request.contextPath}/workdetail/"><div class="work-outer">
-                    <div class="work-top"><img src="${pageContext.request.contextPath}/static/img/assign3.svg"></div>
-                    <span class="work-bottom">2020-4期中总结测试</span>
-                </div></a>
-                <a href=""><div class="work-outer">
-                    <div class="work-top"><img src="${pageContext.request.contextPath}/static/img/assign3.svg"></div>
-                    <span class="work-bottom">2020-4期中总结测试</span>
-                </div></a>
-                <a href=""><div class="work-outer">
-                    <div class="work-top"><img src="${pageContext.request.contextPath}/static/img/assign3.svg"></div>
-                    <span class="work-bottom">2020-4期中总结测试</span>
-                </div></a>
-                <a href=""><div class="work-outer">
-                    <div class="work-top"><img src="${pageContext.request.contextPath}/static/img/assign3.svg"></div>
-                    <span class="work-bottom">2020-4期中总结测试</span>
-                </div></a><a href=""><div class="work-outer">
-                <div class="work-top"><img src="${pageContext.request.contextPath}/static/img/assign3.svg"></div>
-                <span class="work-bottom">2020-4期中总结测试</span>
-            </div></a>
-                <a href=""><div class="work-outer">
-                    <div class="work-top"><img src="${pageContext.request.contextPath}/static/img/assign3.svg"></div>
-                    <span class="work-bottom">2020-4期中总结测试</span>
-                </div></a>
-                <a href=""><div class="work-outer">
-                    <div class="work-top"><img src="${pageContext.request.contextPath}/static/img/assign3.svg"></div>
-                    <span class="work-bottom">2020-4期中总结测试</span>
-                </div></a>--%>
-
             </div>
 
 
-            <div class="remark-section" id="chose1" style="display: none"><span>选择题</span><span class="remark-count">·12题</span></div>
+            <div class="remark-section" id="chose1" style="display: none"><span>选择题</span><span class="remark-count" id="remarkcount1"></span></div>
             <div id="outer-choose-box" style="display: none">
-                <div class="percent"><span class="submits">提交率</span><div class="longback"><div id="innerchoose"></div></div><span class="numbSum">50/100</span></div>
-                <div class="question-box">
+                <div class="percent"><span class="submits">提交率</span><div class="longback"><div id="innerchoose"></div></div><span class="numbSum" id="numbSum1"></span></div>
+                <div class="question-box" id="questionb1">
                     <a href=""><div class="outer"><div class="num-co">1</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>
-                    <a href=""><div class="outer"><div class="num-co">2</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>
-                    <a href=""><div class="outer"><div class="num-co">3</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>
-                    <a href=""><div class="outer"><div class="num-co">4</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>
-                    <a href=""><div class="outer"><div class="num-co">5</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>
-                    <a href=""><div class="outer"><div class="num-co">6</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>
-                    <a href=""><div class="outer"><div class="num-co">7</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>
-                    <a href=""><div class="outer"><div class="num-co">8</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>
-                    <a href=""><div class="outer"><div class="num-co">9</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>
-                    <a href=""><div class="outer"><div class="num-co">10</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>
-                    <a href=""><div class="outer"><div class="num-co">11</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>
-                    <a href=""><div class="outer"><div class="num-co">12</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>
+                    <%--<a href=""><div class="outer"><div class="num-co">2</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>--%>
+
                 </div>
             </div>
-            <div class="remark-section" id="write2" style="display: none"><span>简答题</span><span class="remark-count">·5题</span></div>
+            <div class="remark-section" id="write2" style="display: none"><span>简答题</span><span class="remark-count" id="remarkcount2"></span></div>
             <div id="outer-writer-box" style="display: none">
-                <div class="percent"><span class="submits">提交率</span><div class="longback"><div id="innerWriter"></div></div><span class="numbSum">2/5</span></div>
-                <div class="question-box">
-                    <a href="${pageContext.request.contextPath}/insert/">
+                <div class="percent"><span class="submits">提交率</span><div class="longback"><div id="innerWriter"></div></div><span class="numbSum" id="numbSum2"></span></div>
+                <div class="question-box" id="questionb2">
+                    <%--<a href="${pageContext.request.contextPath}/insert/">
                         <div class="outere-writerquest">
                             <div class="count-number">1</div>
                             <div class="writerquestion-box"><div class="writer-top"><span>10%</span>正确</div><div class="writer-bottom">批改</div></div>
                         </div>
-                    </a>
-                    <a href="${pageContext.request.contextPath}/insert/">
-                        <div class="outere-writerquest">
-                            <div class="count-number">2</div>
-                            <div class="writerquestion-box"><div class="writer-top"><span>10%</span>正确</div><div class="writer-bottom">批改</div></div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="outere-writerquest">
-                            <div class="count-number">3</div>
-                            <div class="writerquestion-box"><div class="writer-top"><span>10%</span>正确</div><div class="writer-bottom">批改</div></div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="outere-writerquest">
-                            <div class="count-number">4</div>
-                            <div class="writerquestion-box"><div class="writer-top"><span>10%</span>正确</div><div class="writer-bottom">批改</div></div>
-                        </div>
-                    </a>
-                    <a href="">
-                        <div class="outere-writerquest">
-                            <div class="count-number">5</div>
-                            <div class="writerquestion-box"><div class="writer-top"><span>10%</span>正确</div><div class="writer-bottom">批改</div></div>
-                        </div>
-                    </a>
-
+                    </a>--%>
                 </div>
             </div>
         </div>
-        <%--<div id="remark-right">
-            <div class="right-first">
-                <div id="remark-lable"><span>批阅情况</span></div>
-                <div id="remark-details">
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>1</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>2</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>3</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>4</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>5</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>6</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>7</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>8</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>9</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>10</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>11</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>12</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>13</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
-                    <a href=""><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesundone.svg" /><span>14</span></div></a>
-                </div>
-            </div>
-            <div id="right-second"></div>
-        </div>--%>
     </div>
 
     <div id="bottom">
@@ -237,5 +132,55 @@
         <div id="cpy">© 2020 ChenChen, Inc.</div>
     </div>
 </div>
+<script type="application/javascript">
+
+
+
+    function gotosecond(name,index) {
+        document.getElementById("home-title").style.display='';
+        document.getElementById("overview-question").style.display='';
+        document.getElementById("chose1").style.display='none';
+        document.getElementById("write2").style.display='none';
+        document.getElementById("outer-choose-box").style.display='none';
+        document.getElementById("outer-writer-box").style.display='none';
+
+        var len=document.getElementsByClassName("lis").length;
+        var it=document.getElementsByClassName("lis");
+        for(var i=0;i<len;i++){
+            it[i].classList.remove("classhove");
+        }
+        document.getElementsByClassName(index)[0].classList.add("classhove");
+        $("#home-title-inner").empty();
+        $("#home-count").empty();
+        document.getElementById("home-title-inner").innerText=name;
+        $("#overview-question").empty();
+        $.ajax({
+            type: 'POST',
+            url: "${pageContext.request.contextPath}/remark/classwlist",
+            data: {classname:name},
+            dataType: "json",
+            success: function (list) {
+                document.getElementById("home-count").innerText="·  "+list.length;
+                $(list).each(
+                    function (i,values) {
+                        $("#overview-question").append('<a onclick="goremark('+'\''+values.classAssoAssiID+'\''+','+'\''+name+'\''+')"><div class="work-outer">' +
+                            '<div class="work-top"><img src="${pageContext.request.contextPath}/static/img/assign3.svg"></div><span class="work-bottom">'+values.classAssoAssiWorkName+'</span>' +
+                            '</div></a>');
+                    }
+                )
+            },
+            error:function(){
+                $("#overview-question").empty();
+                $("#overview-question").append('<div style="height: 100px;width:100px;margin-left: auto;margin-right: auto;">' +
+                    '                    <span><img src="${pageContext.request.contextPath}/static/img/link.svg" width="80%" height="80%"></span>' +
+                    '                    <span>请稍后再试！</span>' +
+                    '                </div>');
+            }
+        });
+    }
+
+
+
+</script>
 </body>
 </html>

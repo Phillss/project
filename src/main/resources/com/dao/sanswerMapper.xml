@@ -8,6 +8,15 @@
         select * from sanswer where sanswerFromW=#{sanswerFromW}  and sanswerOwn=#{sanswerOwn}
          and sanswerClass=#{sanswerClass}
   </select>
+    <select id="selectSingles" resultType="com.Domains.Singles" parameterType="com.Domains.Singles">
+select sanswer.sanswerID, shortquestion.shortQuestionTitle,
+shortquestion.shortQuestionAnswer, sanswer.sanswerContent,sanswer.sanswerTime,
+sanswer.sanswerOwn,sanswer.sanswerClass, student.stuName ,sanswer.sanswerStatus,
+sanswer.sanswerScore from shortquestion,sanswer,student where
+sanswer.sanswerClass=#{sanswerClass} AND sanswer.sanswerFromAss=#{sanswerFromAss}  AND
+sanswer.sanswerFromAss=shortquestion.shortQuestionID AND
+sanswer.sanswerOwn=student.stuNum
+    </select>
     
     <!--<select id="selectWorkID" parameterType="String" resultType="String">
         select classAssoAssiWork from classAssoAssi where classAssoAssiClass=#{index}
