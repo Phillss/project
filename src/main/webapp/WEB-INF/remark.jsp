@@ -16,49 +16,6 @@
    <%@include file="head.jsp"%>
     <script type="application/javascript">
 
-
-
-
-        function goremark(id,name) {
-            document.getElementById("home-title").style.display='none';
-            document.getElementById("overview-question").style.display='none';
-            document.getElementById("chose1").style.display='';
-            document.getElementById("write2").style.display='';
-            document.getElementById("outer-choose-box").style.display='';
-            document.getElementById("outer-writer-box").style.display='';
-            var vc=document.getElementsByClassName("work-bottom")[0].innerHTML;
-            $.ajax({
-                type: 'POST',
-                url: "${pageContext.request.contextPath}/insert/overview",
-                data: {selid:id,pname:name},
-                dataType: "json",
-                success: function (list) {
-                    $("#questionb1").empty();
-                    $("#questionb2").empty();
-                    document.getElementById("remarkcount1").innerText="· "+list.countc+" 题";
-                    document.getElementById("remarkcount2").innerText="· "+list.counts+" 题";
-                    document.getElementById("numbSum1").innerText=list.subnm+"/"+list.sumnum;
-                    document.getElementById("numbSum2").innerText=list.subnm+"/"+list.sumnum;
-                    var is;
-                    var js;
-                    for(var i=0;i<list.questQc.length;++i){
-                        is=i+1;
-                        $("#questionb1").append('<a href="${pageContext.request.contextPath}/insert/single?type=c&pid='+list.questQc[i]+'&pname='+vc+'"><div class="outer"><div class="num-co">'+is+'</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>');
-                    }
-                    for(var j=0;j<list.questQs.length;++j){
-                        js=j+1;
-                        $("#questionb2").append('<a href="${pageContext.request.contextPath}/insert/single?type=s&pid='+list.questQs[j]+'&pname='+name+'&pcs='+vc+'"><div class="outere-writerquest">' +
-                        '<div class="count-number">'+js+'</div>' +
-                        '<div class="writerquestion-box"><div class="writer-top"><span>10%</span>正确</div><div class="writer-bottom">批改</div></div>' +
-                        '</div>');
-                    }
-
-                },
-            });
-        }
-
-
-
     </script>
 </head>
 <body>
@@ -102,16 +59,16 @@
             </div>
 
 
-            <div class="remark-section" id="chose1" style="display: none"><span>选择题</span><span class="remark-count" id="remarkcount1"></span></div>
+            <div class="remark-section" id="chose1" style="display: none"><span>选择题</span><span class="remark-count" id="remarkcount1"></span><a href="${pageContext.request.contextPath}/insert/complete?type=c" class="complete">&ensp;查看全部&ensp;</a></div>
             <div id="outer-choose-box" style="display: none">
                 <div class="percent"><span class="submits">提交率</span><div class="longback"><div id="innerchoose"></div></div><span class="numbSum" id="numbSum1"></span></div>
                 <div class="question-box" id="questionb1">
-                    <a href=""><div class="outer"><div class="num-co">1</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>
+                    <%--<a href=""><div class="outer"><div class="num-co">1</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>--%>
                     <%--<a href=""><div class="outer"><div class="num-co">2</div><div class="chooseQuestion"><div class="inner">100%</div></div></div></a>--%>
 
                 </div>
             </div>
-            <div class="remark-section" id="write2" style="display: none"><span>简答题</span><span class="remark-count" id="remarkcount2"></span></div>
+            <div class="remark-section" id="write2" style="display: none"><span>简答题</span><span class="remark-count" id="remarkcount2"></span><a href="${pageContext.request.contextPath}/insert/complete?type=s" class="complete">&ensp;批阅全部&ensp;</a></div>
             <div id="outer-writer-box" style="display: none">
                 <div class="percent"><span class="submits">提交率</span><div class="longback"><div id="innerWriter"></div></div><span class="numbSum" id="numbSum2"></span></div>
                 <div class="question-box" id="questionb2">
@@ -134,7 +91,47 @@
 </div>
 <script type="application/javascript">
 
-
+    function goremark(id,name) {
+        document.getElementById("home-title").style.display='none';
+        document.getElementById("overview-question").style.display='none';
+        document.getElementById("chose1").style.display='';
+        document.getElementById("write2").style.display='';
+        document.getElementById("outer-choose-box").style.display='';
+        document.getElementById("outer-writer-box").style.display='';
+        var url=document.getElementsByClassName("complete")[0].getAttribute("href");
+        var nurl=url+'&gclass='+name;
+        for(var i=0;i<2;++i){
+            document.getElementsByClassName("complete")[i].setAttribute("href",nurl);
+        }
+        var vc=document.getElementsByClassName("work-bottom")[0].innerHTML;
+        $.ajax({
+            type: 'POST',
+            url: "${pageContext.request.contextPath}/insert/overview",
+            data: {selid:id,pname:name},
+            dataType: "json",
+            success: function (list) {
+                $("#questionb1").empty();
+                $("#questionb2").empty();
+                document.getElementById("remarkcount1").innerText="· "+list.countc+" 题";
+                document.getElementById("remarkcount2").innerText="· "+list.counts+" 题";
+                document.getElementById("numbSum1").innerText=list.subnm+"/"+list.sumnum;
+                document.getElementById("numbSum2").innerText=list.subnm+"/"+list.sumnum;
+                var is;
+                var js;
+                for(var i=0;i<list.questQc.length;++i){
+                    is=i+1;
+                    $("#questionb1").append('<a href="${pageContext.request.contextPath}/insert/single?type=c&pid='+list.questQc[i]+'&pname='+name+'&pcs='+vc+'"><div class="outer"><div class="num-co">'+is+'</div><div class="chooseQuestion"><div class="inner">'+list.corrateC[i]+'</div></div></div></a>');
+                }
+                for(var j=0;j<list.questQs.length;++j){
+                    js=j+1;
+                    $("#questionb2").append('<a href="${pageContext.request.contextPath}/insert/single?type=s&pid='+list.questQs[j]+'&pname='+name+'&pcs='+vc+'"><div class="outere-writerquest">' +
+                        '<div class="count-number">'+js+'</div>' +
+                        '<div class="writerquestion-box"><div class="writer-top"><span>'+list.corrateS[j]+'</span>正确</div><div class="writer-bottom">批改</div></div>' +
+                        '</div>');
+                }
+            },
+        });
+    }
 
     function gotosecond(name,index) {
         document.getElementById("home-title").style.display='';
@@ -179,7 +176,10 @@
         });
     }
 
+window.onload=function () {
+        var url=document.getElementsByClassName("complete")[0].getAttribute("href");
 
+}
 
 </script>
 </body>

@@ -35,7 +35,7 @@
     <div class="contents">
         <div class="inner-detail"><span>用户名：</span>${profile.userCount}</div>
         <div class="inner-detail"><span>用户状态：</span>${profile.userCondition}</div>
-        <div class="inner-detail"><span>姓&ensp;&ensp;名：</span>川建国<span id="identity">${profile.userCertify}</span></div>
+        <div class="inner-detail"><span>姓&ensp;&ensp;名：</span>${profile.teaName}<span id="identity">${profile.userCertify}</span></div>
         <div class="inner-detail"><span>性&ensp;&ensp;别：</span>${profile.teaSex}</div>
         <div class="inner-detail"><span>邮&ensp;&ensp;箱：</span><input type="text" disabled="disabled" value="${profile.userEmail}"><span class="changex"><a href="">更换邮箱</a></span></div>
         <div class="inner-detail"><span>手&ensp;&ensp;机：</span><input type="text" disabled="disabled" value="${profile.userPhone}"><span class="changex"><a href="">更换手机</a></span></div>

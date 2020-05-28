@@ -14,7 +14,34 @@ public class Sanswer implements Serializable {
     private String sanswerClass;
     private String sanswerStatus;
     private String sanswerMark;
+    private String sanswerMarkindex;
     private String sanswerScore;
+    private String sanswermarkPb;
+    private String sanswermarkPbindex;
+
+    public String getSanswerMarkindex() {
+        return sanswerMarkindex;
+    }
+
+    public void setSanswerMarkindex(String sanswerMarkindex) {
+        this.sanswerMarkindex = sanswerMarkindex;
+    }
+
+    public String getSanswermarkPbindex() {
+        return sanswermarkPbindex;
+    }
+
+    public void setSanswermarkPbindex(String sanswermarkPbindex) {
+        this.sanswermarkPbindex = sanswermarkPbindex;
+    }
+
+    public String getSanswermarkPb() {
+        return sanswermarkPb;
+    }
+
+    public void setSanswermarkPb(String sanswermarkPb) {
+        this.sanswermarkPb = sanswermarkPb;
+    }
 
     public String getSanswerScore() {
         return sanswerScore;

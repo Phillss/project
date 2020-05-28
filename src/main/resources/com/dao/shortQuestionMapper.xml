@@ -12,6 +12,8 @@
   </select>
 
 
+
+
    <!-- <select id="selectDistinctByName" parameterType="String" resultType="com.Domains.User">
         select * from usertable where userCount=#{index}
     </select>-->

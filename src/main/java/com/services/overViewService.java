@@ -27,9 +27,11 @@ public class overViewService {
         Assignment assignment=assignmentmapper.selectAssignById(assignId);
         String[] shortQues=assignment.getAssignmentShort().split(",");
         String[] chooses=assignment.getAssignmentChoice().split(",");
+        String[] corrateC=classassoworkmapper.selectCorrateByc(chooses);
+        String[] corrateS=classassoworkmapper.selectCorrateBys(shortQues);
         OverView overvies=new OverView(chooses.length,shortQues.length,
         classassoassi.getClassAssoAssiSubNum(),classassoassi.getClassAssoAssiClNum(),
-                chooses,shortQues);
+                chooses,shortQues,corrateC,corrateS);
         return overvies;
     }
 }

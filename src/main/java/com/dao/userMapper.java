@@ -13,4 +13,12 @@ public interface userMapper{
     User selectDistinctByName(String index);
 
     List<String> selectTestByname(String index);
+
+    String selectFromTeacher(String index);
+
+    int selectFromAssi(String index);
+
+    int selectFromAsi(String index);
+
+    String[] selectNumByStuClass(String index);
 }

@@ -1,9 +1,11 @@
 package com.dao;
 
 import com.Domains.messageNotices;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface messageNoticesMapper {
 
     int selectAllCountBefore(messageNotices message);

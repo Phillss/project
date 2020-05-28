@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.markMapper">
+
+<select id="selectAllPub" resultType="com.Domains.publicMark">
+    select * from publicremark
+</select>
+
+<select id="selectPrivate" parameterType="String" resultType="com.Domains.privateMark">
+    select * from privateremark where privateRemarkReference=#{index} ORDER BY privateRemarkInsertTime desc
+</select>
+
+    <select id="selectAlone" parameterType="String" resultType="com.Domains.Sanswer">
+        select * from sanswer where sanswerID=#{index}
+    </select>
+
+    <insert id="insertPrivate" parameterType="com.Domains.privateMark" >
+        insert into privateremark (privateRemark,privateRemarkInsertTime,
+        privateRemarkReference,privateRefer,privateReferIndex)
+        VALUES(#{privateRemark},#{privateRemarkInsertTime},#{privateRemarkReference},
+        #{privateRefer},#{privateReferIndex})
+    </insert>
+
+    <insert id="insertPublic" parameterType="com.Domains.publicMark">
+        INSERT INTO publicremark (publicRemark,pubicInsertTime,publicRefer,publicReferIndex)
+        VALUES(#{publicRemark},#{pubicInsertTime},#{publicRefer},#{publicReferIndex})
+    </insert>
+
+    <select id="selectPrivateByPri" parameterType="com.Domains.privateMark" resultType="com.Domains.privateMark">
+        SELECT privateRemark,privateReferIndex from privateremark where privateRefer=#{privateRefer}
+        AND privateRemarkReference=#{privateRemarkReference} ORDER BY privateRemarkInsertTime desc
+    </select>
+
+    <select id="selectPublicByPub" parameterType="com.Domains.publicMark" resultType="com.Domains.publicMark">
+        SELECT publicremark,publicReferIndex from publicremark where publicRefer=#{publicRefer} ORDER BY pubicInsertTime desc
+    </select>
+
+    <update id="updateMark" parameterType="com.Domains.Sanswer" >
+        update sanswer set sanswerMark=#{sanswerMark},sanswerMarkindex=#{sanswerMarkindex},
+        sanswermarkPb=#{sanswermarkPb},sanswermarkPbindex=#{sanswermarkPbindex} WHERE sanswerID=#{sanswerID}
+    </update>
+
+
+</mapper>

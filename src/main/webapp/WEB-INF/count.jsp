@@ -23,25 +23,22 @@
         <div id="top-content">
             <ul>
                 <li><a href=""><div class="left-class">
-                        <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                        <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span title="计算机161">计算机161</span></div>
                 </div></a></li>
                 <li><a href=""><div class="left-class">
-                    <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                    <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span title="网络工程161">网络工程161</span></div>
                 </div></a></li>
                 <li><a href=""><div class="left-class">
-                    <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                    <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span title="软件工程161">软件工程161</span></div>
                 </div></a></li>
                 <li><a href=""><div class="left-class">
-                    <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                    <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span title="信息技术161">信息技术161</span></div>
                 </div></a></li>
                 <li><a href=""><div class="left-class">
-                    <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                    <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span title="网络安全161">网络安全161</span></div>
                 </div></a></li>
                 <li><a href=""><div class="left-class">
-                    <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
-                </div></a></li>
-                <li><a href=""><div class="left-class">
-                    <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span>计算机161</span></div>
+                    <div class="class-img"><img src="${pageContext.request.contextPath}/static/img/homeworkUndone.svg"/></div><div class="class-name"><span title="航空161">航空161</span></div>
                 </div></a></li>
             </ul>
         </div>
@@ -49,7 +46,7 @@
 </div>
 <div id="count-mid">
     <div id="mid-top"></div>
-    <div id="mid-label"><label>成绩统计信息(样例)</label></div>
+    <div id="mid-label"><label>成绩统计信息</label></div>
     <div id="mid-content"></div>
     <%--<div id="mid-label2"><label>趋势图(样例)</label></div>
     <div id="mid-content2"></div>--%>
@@ -95,22 +92,25 @@
 
         option = {
             legend: {},
+            title: {
+                text: '及格率统计'
+            },
             tooltip: {
                 trigger: 'axis',
                 showContent: false
             },
             dataset: {
                 source: [
-                    ['product', '2015', '2016', '2017', '2018', '2019', '2020'],
-                    ['数据结构', 41.1, 30.4, 65.1, 53.3, 83.8, 98.7],
-                    ['操作系统', 86.5, 92.1, 85.7, 83.1, 73.4, 55.1],
-                    ['计算机网络', 24.1, 67.2, 79.5, 86.4, 65.2, 82.5],
-                    ['组成原理', 55.2, 67.1, 69.2, 72.4, 53.9, 39.1]
+                    ['科目', '计算机', '网络工程', '软件工程', '信息技术', '网络安全', '航空'],
+                    ['数据结构', 66, 50, 65.1, 73, 83.8, 98.7],
+                    ['操作系统', 86.5, 92.1, 85.7, 83.1, 73.4, 67],
+                    ['计算机网络', 77, 67.2, 79.5, 86.4, 65.2, 82.5],
+                    ['组成原理', 61, 67.1, 69.2, 72.4, 53.9, 55]
                 ]
             },
             xAxis: {type: 'category'},
             yAxis: {gridIndex: 0},
-            grid: {top: '55%'},
+            grid: {top: '45%'},
             series: [
                 {type: 'line', smooth: true, seriesLayoutBy: 'row'},
                 {type: 'line', smooth: true, seriesLayoutBy: 'row'},
@@ -125,9 +125,9 @@
                         formatter: '{b}: {@2012} ({d}%)'
                     },
                     encode: {
-                        itemName: 'product',
-                        value: '2012',
-                        tooltip: '2012'
+                        itemName: '科目',
+                        value: '',
+                        tooltip: ''
                     }
                 }
             ]

@@ -27,10 +27,14 @@
         function recent() {
             document.getElementsByClassName("re2")[0].classList.remove("remcho");
             document.getElementsByClassName("re1")[0].classList.add("remcho");
+            document.getElementById("tbs").style.display='';
+            document.getElementById("mh").style.display='none';
         }
         function newadd(){
             document.getElementsByClassName("re1")[0].classList.remove("remcho");
             document.getElementsByClassName("re2")[0].classList.add("remcho");
+            document.getElementById("tbs").style.display="none";
+            document.getElementById("mh").style.display='';
         }
         function working() {
             document.getElementsByClassName("cl2")[0].classList.remove("bucho");
@@ -123,10 +127,13 @@
             </div>
             <!-- <div class="main-title">最近已批阅：</div> -->
             <div class="main-homework">
-                <table>
+                <div class="main-homework" id="mh" style="display: none">
+                    <div id="emptys"><img src="${pageContext.request.contextPath}/static/img/null.svg"></div>
+                </div>
+                <table id="tbs">
                     <tr id="tr1">
                         <c:forEach items="${undonework}" var="undone">
-                            <td><a href=""><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
+                            <td><a href="${pageContext.request.contextPath}/insert/complete?type=sc&gclass=${undone.classAssoAssiClass}"><img src="${pageContext.request.contextPath}/static/img/homeworkDone.svg"></a></td>
                         </c:forEach>
                         <c:if test="${undonework.size()>=5}"><td><img style="width: 30px;height: 30px" src="${pageContext.request.contextPath}/static/img/more.svg"/></td></c:if>
                     </tr>
@@ -198,18 +205,18 @@
             <div id="personimg">
                 <div id="perpo"><img src="${pageContext.request.contextPath}/static/img/classmate1.svg"></div>
                 <div id="perna">
-                    <span id="pn">川建国</span>
-                    <span id="wel">下午好！</span>
+                    <span id="pn">${uname}</span>
+                    <span id="wel">欢迎回来！</span>
                 </div>
             </div>
             <div id="persondeta">
                 <div class="persondiv">
-                    <span class="personcount">2</span>
+                    <span class="personcount">${classCount}</span>
                     <span class="personsay">我的班级</span>
                 </div>
                 <div class="persondiv">
-                    <span class="personcount">4</span>
-                    <span class="personsay">我的课程</span>
+                    <span class="personcount">${assiCount}</span>
+                    <span class="personsay">我的作业</span>
                 </div>
             </div>
         </div>

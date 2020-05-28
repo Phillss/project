@@ -17,18 +17,27 @@ sanswer.sanswerClass=#{sanswerClass} AND sanswer.sanswerFromAss=#{sanswerFromAss
 sanswer.sanswerFromAss=shortquestion.shortQuestionID AND
 sanswer.sanswerOwn=student.stuNum
     </select>
+
+    <select id="selectSinglesInChoose" resultType="com.Domains.Singles" parameterType="com.Domains.Singles">
+SELECT thanswer.thanswerId AS "sanswerID",  themeofoption.themeOfOptionTitle
+AS "shortQuestionTitle",themeofoption.themeOfOptionAnswer AS
+"shortQuestionAnswer", thanswer.thanswerContent AS "sanswerContent",
+thanswer.thanswerOwn AS "sanswerOwn",thanswer.thanswerClass AS
+"sanswerClass",student.stuName,thanswer.thanswerStatus AS "sanswerScore"
+from thanswer,student,themeofoption where thanswer.thanswerClass=#{sanswerClass}
+AND thanswer.thanswerFromAss=#{sanswerFromAss} AND thanswer.thanswerFromAss=themeofoption.themeOfOptionId
+AND thanswer.thanswerOwn=student.stuNum
+    </select>
+
     
-    <!--<select id="selectWorkID" parameterType="String" resultType="String">
-        select classAssoAssiWork from classAssoAssi where classAssoAssiClass=#{index}
-    </select>-->
-
-   <!-- <select id="selectDistinctByName" parameterType="String" resultType="com.Domains.User">
-        select * from usertable where userCount=#{index}
-    </select>-->
-
-    <!--<select id="selectTestByname" parameterType="String" resultType="String">
-        select noticeTitle from notice where noticeTitle like "%"#{index}"%" limit 5
-    </select>-->
+   <select id="selectComplete" parameterType="com.Domains.domainComplete" resultType="com.Domains.completeBack">
+       select sanswer.sanswerID, shortquestion.shortQuestionTitle,shortquestion.shortQuestionAnswer
+       ,sanswer.sanswerContent,student.stuName,student.stuClass
+       from shortquestion,sanswer,student WHERE sanswer.sanswerFromAss=shortquestion.shortQuestionID
+       AND sanswer.sanswerClass=#{gclass}
+       AND sanswer.sanswerOwn=student.stuNum AND
+       student.stuNum=#{number}
+   </select>
 
 
 

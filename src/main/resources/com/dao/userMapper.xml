@@ -15,6 +15,21 @@
     <select id="selectTestByname" parameterType="String" resultType="String">
         select noticeTitle from notice where noticeTitle like "%"#{index}"%" limit 5
     </select>
+    
+    <select id="selectFromTeacher" parameterType="String" resultType="String">
+        select teaName from teacher where teaNum=#{index}
+    </select>
+    
+    <select id="selectFromAssi" parameterType="String" resultType="int">
+        select COUNT(DISTINCT classAssoAssiClass)  from classAssoAssi where classAssoPub=#{index}
+    </select>
+    
+    <select id="selectFromAsi" parameterType="String" resultType="int">
+        select COUNT(DISTINCT assignmentName) from assignment where assignmentPber=#{index}
+    </select>
 
+    <select id="selectNumByStuClass" parameterType="String" resultType="String">
+        select stuNum from student where stuClass=#{index}
+    </select>
 
 </mapper>

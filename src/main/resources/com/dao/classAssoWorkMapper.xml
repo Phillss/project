@@ -36,6 +36,20 @@
             select * from classAssoAssi where classAssoAssiID=#{index}
     </select>
 
+    <select id="selectCorrateByc" parameterType="String" resultType="String">
+        SELECT corrate from corrate where corrateType="c" AND corrateRelate IN
+        <foreach collection="array" item="cor" index="index" open="(" close=")" separator=",">
+            #{cor}
+        </foreach>
+    </select>
+
+    <select id="selectCorrateBys" parameterType="String" resultType="String">
+        SELECT corrate from corrate where corrateType="s" AND corrateRelate IN
+        <foreach collection="array" item="cor" index="index" open="(" close=")" separator=",">
+            #{cor}
+        </foreach>
+    </select>
+
 
 
 

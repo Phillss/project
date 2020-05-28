@@ -14,6 +14,42 @@ public class Singles {
     private String sanswerStatus;
     private String sanswerScore;
     private String sanswerFromAss;
+    private String sanswerMark;
+    private String sanswerMarkindex;
+    private String sanswermarkPb;
+    private String sanswermarkPbindex;
+
+    public String getSanswerMark() {
+        return sanswerMark;
+    }
+
+    public void setSanswerMark(String sanswerMark) {
+        this.sanswerMark = sanswerMark;
+    }
+
+    public String getSanswerMarkindex() {
+        return sanswerMarkindex;
+    }
+
+    public void setSanswerMarkindex(String sanswerMarkindex) {
+        this.sanswerMarkindex = sanswerMarkindex;
+    }
+
+    public String getSanswermarkPb() {
+        return sanswermarkPb;
+    }
+
+    public void setSanswermarkPb(String sanswermarkPb) {
+        this.sanswermarkPb = sanswermarkPb;
+    }
+
+    public String getSanswermarkPbindex() {
+        return sanswermarkPbindex;
+    }
+
+    public void setSanswermarkPbindex(String sanswermarkPbindex) {
+        this.sanswermarkPbindex = sanswermarkPbindex;
+    }
 
     public String getSanswerFromAss() {
         return sanswerFromAss;

@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page isELIgnored="false" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -25,22 +26,17 @@
     <div class="process-stage"><a href="${pageContext.request.contextPath}/insert/">作业批改</a></div>
     <div class="process"><img src="${pageContext.request.contextPath}/static/img/arrow.svg"></div>
     <div class="insertlr" id="insmid" title="上一个"><img src="${pageContext.request.contextPath}/static/img/arrleft.svg" onclick="befores()"></div>
-    <div class="insertlr"><span id="cuin">1</span>/${lists.size()}</div>
+    <div class="insertlr"><span id="cuin">1</span>/${fn:length(stuNumList)}</div>
     <div class="insertlr" title="下一个"><img src="${pageContext.request.contextPath}/static/img/arrright.svg" onclick="nexts()"></div>
 </div>
-
 <div id="insert-content">
     <div id="insert-left">
         <div class="right-first">
             <div id="remark-lable"><span>批阅情况</span></div>
             <div id="remark-details">
-                <c:forEach var="ll" items="${lists}" varStatus="vasi">
-
+                <c:forEach var="ll" items="${clback}" varStatus="vasi">
                         <a href="#{vasi.index+1}"><div class="modul"><img src="${pageContext.request.contextPath}/static/img/remarkquesdone.svg" /><span>${vasi.index+1}</span></div></a>
-
-
                 </c:forEach>
-
             </div>
         </div>
         <div id="modeA-like">
@@ -50,7 +46,6 @@
                 <div class="like-right">
                     <div class="likeuser"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div>
                     <div class="likeuser"><img src="${pageContext.request.contextPath}/static/img/singleUser.svg"></div>
-
                 </div>
             </div>
             <div class="likecondi">
@@ -79,11 +74,12 @@
     </div>
 
     <div id="itemscount" style="display: none">${lists.size()}</div>
+    <div id="cls" style="display: none">${cla}</div>
     <div id="insert-mid">
         <div id="paper-name"><span>——${paper}——</span></div>
-        <c:forEach var="ll" items="${lists}" varStatus="lls">
-                <div class="paper-studentn" style="display: none"><span>· ${ll.sanswerClass} · ${ll.stuName}</span></div>
-                <div class="model-A" style="display: none">
+        <div class="paper-studentn" ><span>· ${cla} · ${name}</span></div>
+        <c:forEach var="ll" items="${clback}" varStatus="lls">
+                <div class="model-A" >
                     <a id="${lls.index}"></a>
                     <div class="questionOption">${lls.index+1}、简答题：</div>
                     <div class="modelA-title">&ensp;${ll.shortQuestionTitle}</div>
@@ -91,18 +87,11 @@
                     <div class="modelA-answer" id="${ll.sanswerID}">
                         &ensp;&ensp;&ensp;${ll.sanswerContent}
                     </div>
-                    <div class="modelA-exam"><span class="correct">正确</span><span class="wrong">错误</span>
-                        <span class="modelsave" onclick="sho()"><img src="${pageContext.request.contextPath}/static/img/adin.svg"></span>
-                        <span class="star"><img src="${pageContext.request.contextPath}/static/img/star.svg"></span></div>
+                    <div class="modelA-exam"><span class="correct">正确</span><span class="wrong">错误</span><span class="star"><img src="${pageContext.request.contextPath}/static/img/star.svg"></span></div>
                 </div>
+
         </c:forEach>
-        <div class="insed" style="display: none"></div>
-        <div class="instext" style="display: none">
-            <input class="neert" type="" name="">
-            <button class="nus" onclick="addandshow()">添加</button>
-        </div>
-
-
+        <div id="obj" style="display: none">${fn:length(stuNumList)}</div>
     </div>
     <div id="insert-right">
         <div id="hidden-show"></div>
@@ -153,6 +142,7 @@
     <div id="line-l"></div>
     <div id="line-c"></div>
 </div>--%>
+
 <script type="application/javascript">
     var curranid;
     var sta;
@@ -160,6 +150,9 @@
     var posix;
     var curindex=0;
     var reallen;
+    var count;
+    var ngclass;
+    var papname;
     function get(date){
         document.getElementById("marks").style.display='none';
         var curr=document.getElementById(date.id);
@@ -271,7 +264,9 @@
 
     window.onload=function () {
         var lli=document.getElementsByClassName("modelA-answer");
-        reallen=document.getElementById("itemscount").innerText;
+        count=document.getElementById("obj").innerText;
+        ngclass=document.getElementById("cls").innerText;
+        papname=document.getElementById("paper-name").innerText;
         for(var i=0;i<lli.length;++i){
             var na=lli[i].getAttribute("id");
             $.ajax({
@@ -285,74 +280,66 @@
                         $hu.append('<div class="rightmark">['+lis[j].privateReferIndex+'] '+lis[j].privateRemark+'</div>');
                     }
                     $("#marks").append($hu);
-                    var mar=document.getElementsByClassName("markdiv");
-                    for(var u=1;u<reallen;++u){
-                        mar[u].style.display='none';
-                    }
                 },
             });
         }
-        var pap=document.getElementsByClassName("paper-studentn");
-        var mdo=document.getElementsByClassName("model-A");
-        // var mar=document.getElementsByClassName("markdiv");
-        pap[0].style.display='';
-        mdo[0].style.display='';
     }
     function befores() {
         if(curindex>0){
-            var pap=document.getElementsByClassName("paper-studentn");
-            var mdo=document.getElementsByClassName("model-A");
-            var mar=document.getElementsByClassName("markdiv");
-            document.getElementsByClassName("insed")[0].innerHTML='';
-            document.getElementsByClassName("insed")[0].style.display='none';
-            pap[curindex].style.display='none';
-            mdo[curindex].style.display='none';
-            mar[curindex].style.display='none';
             --curindex;
-            pap[curindex].style.display='';
-            mdo[curindex].style.display='';
-            mar[curindex].style.display='';
             document.getElementById("cuin").innerText=curindex+1;
+            $("#insert-mid").empty();
+            $.ajax({
+                type: 'POST',
+                url: "${pageContext.request.contextPath}/insert/sycompl",
+                data: {gclass:ngclass,count:curindex},
+                dataType: "json",
+                success: function (list) {
+                    $("#paper-name").append('<div id="paper-name"><span>'+papname+'</span></div>');
+                    $("#paper-name").append('<div class="paper-studentn" ><span>· '+list[0].stuClass+' · '+list[0].stuName+'</span></div>');
+                    for(var j=0;j<count;++j){
+                        $("#insert-mid").append('<div class="model-A" >' +
+                            '<a id=""></a>' +
+                            '<div class="questionOption">、简答题：</div>' +
+                            '<div class="modelA-title">&ensp;'+list[j].shortQuestionTitle+'</div><div class="modelA-lti">回答：</div>' +
+                            '<div class="modelA-answer" id="">' +
+                            '&ensp;&ensp;&ensp;'+list[j].sanswerContent+'</div> <div class="modelA-exam"><span class="correct">正确</span><span class="wrong">错误</span><span class="star"><img src="${pageContext.request.contextPath}/static/img/star.svg"></span></div></div>');
+                    }
+                },
+            });
         }else{
             alert("这是第一道题！");
         }
     }
     function nexts() {
-        if(curindex<reallen-1){
-            var pap=document.getElementsByClassName("paper-studentn");
-            var mdo=document.getElementsByClassName("model-A");
-            var mar=document.getElementsByClassName("markdiv");
-            document.getElementsByClassName("insed")[0].innerHTML='';
-            document.getElementsByClassName("insed")[0].style.display='none';
-            pap[curindex].style.display='none';
-            mdo[curindex].style.display='none';
-            mar[curindex].style.display='none';
+        if(curindex<count-1){
             ++curindex;
-            pap[curindex].style.display='';
-            mdo[curindex].style.display='';
-            mar[curindex].style.display='';
             document.getElementById("cuin").innerText=curindex+1;
+            $("#insert-mid").empty();
+            $.ajax({
+                type: 'POST',
+                url: "${pageContext.request.contextPath}/insert/sycompl",
+                data: {gclass:ngclass,count:curindex},
+                dataType: "json",
+                success: function (list) {
+                    $("#paper-name").append('<div id="paper-name"><span>'+papname+'</span></div>');
+                    $("#paper-name").append('<div class="paper-studentn" ><span>· '+list[0].stuClass+' · '+list[0].stuName+'</span></div>');
+                    for(var j=0;j<count;++j){
+                        $("#insert-mid").append('<div class="model-A" >' +
+                            '<a id=""></a>' +
+                            '<div class="questionOption">、简答题：</div>' +
+                            '<div class="modelA-title">&ensp;'+list[j].shortQuestionTitle+'</div><div class="modelA-lti">回答：</div>' +
+                            '<div class="modelA-answer" id="">' +
+                            '&ensp;&ensp;&ensp;'+list[j].sanswerContent+'</div> <div class="modelA-exam"><span class="correct">正确</span><span class="wrong">错误</span><span class="star"><img src="${pageContext.request.contextPath}/static/img/star.svg"></span></div></div>');
+                    }
+                },
+            });
         }else{
             alert("已是最后一道题了！");
         }
     }
-
-    function sho() {
-        var ins=document.getElementsByClassName("instext");
-        if(ins[0].style.display=='none'){
-            ins[0].style.display='';
-        }else{
-            ins[0].style.display='none';
-        }
-    }
-    function addandshow() {
-        var e=document.getElementsByClassName("insed");
-        document.getElementsByClassName("instext")[0].style.display='none';
-        e[0].innerHTML=document.getElementsByClassName("neert")[0].value;
-        e[0].style.display='';
-        document.getElementsByClassName("neert")[0].value='';
-    }
 </script>
+
 <script type="text/javascript">
     document.getElementById("hidden-show").addEventListener("mouseenter",function(){
         document.getElementById("right-option").style.right="0";
@@ -360,6 +347,7 @@
     document.getElementById("insert-right").addEventListener("mouseenter",function(){
         document.getElementById("right-option").style.right="-50px";
     },false);
+
 </script>
 </body>
 </html>

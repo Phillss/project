@@ -77,6 +77,9 @@ public class UserController implements Serializable {
                 model.addAttribute("moticelist",notices);
                 List<ClassAssoAssi> classAssi=classassoworkmapper.selectWorkingByDesc(unum);
                 model.addAttribute("undonework",classAssi);
+                model.addAttribute("uname",mapper.selectFromTeacher(unum));
+                model.addAttribute("classCount",mapper.selectFromAssi(unum));
+                model.addAttribute("assiCount",mapper.selectFromAsi(unum));
                 return "home";
             }catch (AuthenticationException e){
                 System.out.println("登录失败 "+e.getMessage());
@@ -92,6 +95,9 @@ public class UserController implements Serializable {
             model.addAttribute("moticelist",notices);
             List<ClassAssoAssi> classAssi=classassoworkmapper.selectWorkingByDesc(unum);
             model.addAttribute("undonework",classAssi);
+            model.addAttribute("uname",mapper.selectFromTeacher(unum));
+            model.addAttribute("classCount",mapper.selectFromAssi(unum));
+            model.addAttribute("assiCount",mapper.selectFromAsi(unum));
             return "home";
         }
     }
@@ -113,6 +119,9 @@ public class UserController implements Serializable {
         model.addAttribute("moticelist",notices);
         List<ClassAssoAssi> classAssi=classassoworkmapper.selectWorkingByDesc(unum);
         model.addAttribute("undonework",classAssi);
+        model.addAttribute("unmae",mapper.selectFromTeacher(unum));
+        model.addAttribute("classCount",mapper.selectFromAssi(unum));
+        model.addAttribute("assiCount",mapper.selectFromAsi(unum));
         return "home";
     }
 

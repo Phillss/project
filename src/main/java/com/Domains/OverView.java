@@ -9,18 +9,38 @@ public class OverView implements Serializable {
     private int sumnum;  //总人数
     private String[] questQc;    //题目ID
     private String[] questQs;
+    private String[] corrateC;//选择特正确率
+    private String[] corrateS;//简答题正确率
 
     public OverView(){
 
     }
 
-    public OverView(int countc, int counts, int subnm, int sumnum, String[] questQc, String[] questQs) {
+    public OverView(int countc, int counts, int subnm, int sumnum, String[] questQc, String[] questQs, String[] corrateC, String[] corrateS) {
         this.countc = countc;
         this.counts = counts;
         this.subnm = subnm;
         this.sumnum = sumnum;
         this.questQc = questQc;
         this.questQs = questQs;
+        this.corrateC = corrateC;
+        this.corrateS = corrateS;
+    }
+
+    public String[] getCorrateC() {
+        return corrateC;
+    }
+
+    public void setCorrateC(String[] corrateC) {
+        this.corrateC = corrateC;
+    }
+
+    public String[] getCorrateS() {
+        return corrateS;
+    }
+
+    public void setCorrateS(String[] corrateS) {
+        this.corrateS = corrateS;
     }
 
     public int getCountc() {

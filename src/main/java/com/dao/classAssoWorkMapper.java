@@ -1,9 +1,11 @@
 package com.dao;
 
 import com.Domains.ClassAssoAssi;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface classAssoWorkMapper {
 
     String selectWorkID(String index);
@@ -17,4 +19,8 @@ public interface classAssoWorkMapper {
     List<ClassAssoAssi> selectClassWorks(ClassAssoAssi classassoassi);
 
     ClassAssoAssi remarkOverView(int index);
+
+    String[] selectCorrateByc(String[] index);
+
+    String[] selectCorrateBys(String[] index);
 }
