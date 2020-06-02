@@ -1,5 +1,6 @@
 package com.dao;
 
+import com.Domains.Teacher;
 import com.Domains.User;
 import org.springframework.stereotype.Repository;
 
@@ -21,4 +22,6 @@ public interface userMapper{
     int selectFromAsi(String index);
 
     String[] selectNumByStuClass(String index);
+
+    List<Teacher> selectAllTea();
 }

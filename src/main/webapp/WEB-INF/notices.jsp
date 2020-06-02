@@ -57,7 +57,7 @@
         </div>
         <ul>
             <c:forEach items="${messageNotices}" var="notices">
-            <li class="${notices.messageStatus} textli"><div class="text-box" onclick="fm('${notices.messageTypeName}','<%--${notices.messageContent}--%>','<fmt:formatDate value='${notices.messageTime}'/>')"><div class="notice-img"><img src="${pageContext.request.contextPath}/static/img/broadcast.svg"></div><div class="content-t"><div class="content-topic">${notices.messageTypeName}</div><div class="content-bre">${notices.messageContent}</div><div class="content-time"><fmt:formatDate value="${notices.messageTime}"/>
+            <li class="${notices.messageStatus} textli"><div class="text-box" onclick="fm('${notices.messageTypeName}','${notices.messageContent}','<fmt:formatDate value='${notices.messageTime}'/>')"><div class="notice-img"><img src="${pageContext.request.contextPath}/static/img/broadcast.svg"></div><div class="content-t"><div class="content-topic">${notices.messageTypeName}</div><div class="content-bre">${notices.messageContent}</div><div class="content-time"><fmt:formatDate value="${notices.messageTime}"/>
 
             </c:forEach>
         </ul>

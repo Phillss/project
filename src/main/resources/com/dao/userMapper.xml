@@ -32,4 +32,7 @@
         select stuNum from student where stuClass=#{index}
     </select>
 
+    <select id="selectAllTea" resultType="com.Domains.Teacher">
+        select * from teacher
+    </select>
 </mapper>
