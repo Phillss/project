@@ -39,6 +39,11 @@ AND thanswer.thanswerOwn=student.stuNum
        student.stuNum=#{number}
    </select>
 
+    <!--<select id="selectCopy" resultType="com.Domains.Sanswer" parameterType="String">
+        select * from `sanswer`
+        where sanswerContent in (select sanswerContent from  `sanswer` group by sanswerContent having count(sanswerContent) > 1)  and sanswerFromW=#{index}
+    </select>-->
+
 
 
 </mapper>

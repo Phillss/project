@@ -87,10 +87,29 @@
                     <div class="modelA-answer" id="${ll.sanswerID}">
                         &ensp;&ensp;&ensp;${ll.sanswerContent}
                     </div>
-                    <div class="modelA-exam"><span class="correct">正确</span><span class="wrong">错误</span><span class="star"><img src="${pageContext.request.contextPath}/static/img/star.svg"></span></div>
+                    <div class="modelA-exam">
+                        <span class="pigai" id="pi" style="">
+                            <span onclick="rer()"><img src="${pageContext.request.contextPath}/static/img/recor.svg" alt=""/></span>
+                            <span><img src="${pageContext.request.contextPath}/static/img/success.svg" alt=""/></span>
+                        </span>
+                        <span class="pigai" id="pis" style="display: none">
+                            <span onclick="rew()"><img src="${pageContext.request.contextPath}/static/img/recor.svg" alt=""/></span>
+                            <span><img src="${pageContext.request.contextPath}/static/img/alert.svg" alt=""/></span>
+                        </span>
+                        <span class="correct" id="rig" style="display: none" onclick="ri()">正确</span><span class="wrong" id="wro" style="display: none" onclick="wr()">错误</span>
+                        <span class="modelsave" onclick="sho()"><img src="${pageContext.request.contextPath}/static/img/adin.svg"></span>
+                        <span class="star" style="display: none" id="st" onclick="st()"><img src="${pageContext.request.contextPath}/static/img/star.svg"></span>
+                        <span class="star" id="uns" onclick="unst()"><img src="${pageContext.request.contextPath}/static/img/unstar.svg"></span>
+                    </div>
                 </div>
 
+            <div class="insed" style="display: none"></div>
+            <div class="instext" style="display: none">
+                <input class="neert" type="" name="">
+                <button class="nus" onclick="addandshow()">添加</button>
+            </div>
         </c:forEach>
+
         <div id="obj" style="display: none">${fn:length(stuNumList)}</div>
     </div>
     <div id="insert-right">
@@ -337,6 +356,56 @@
         }else{
             alert("已是最后一道题了！");
         }
+    }
+
+    function sho() {
+        var ins=document.getElementsByClassName("instext");
+        if(ins[0].style.display=='none'){
+            ins[0].style.display='';
+        }else{
+            ins[0].style.display='none';
+        }
+    }
+
+    function addandshow() {
+        var e=document.getElementsByClassName("insed");
+        document.getElementsByClassName("instext")[0].style.display='none';
+        e[0].innerHTML=document.getElementsByClassName("neert")[0].value;
+        e[0].style.display='';
+        document.getElementsByClassName("neert")[0].value='';
+    }
+
+    function ri() {
+        document.getElementById("rig").style.display='none';
+        document.getElementById("wro").style.display='none';
+        document.getElementById("pi").style.display='';
+        document.getElementById("pis").style.display='none';
+    }
+    function wr() {
+        document.getElementById("rig").style.display='none';
+        document.getElementById("wro").style.display='none';
+        document.getElementById("pi").style.display='none';
+        document.getElementById("pis").style.display='';
+    }
+    function rer() {
+        document.getElementById("rig").style.display='';
+        document.getElementById("wro").style.display='';
+        document.getElementById("pi").style.display='none';
+        document.getElementById("pis").style.display='none';
+    }
+    function rew() {
+        document.getElementById("rig").style.display='';
+        document.getElementById("wro").style.display='';
+        document.getElementById("pi").style.display='none';
+        document.getElementById("pis").style.display='none';
+    }
+    function st() {
+        document.getElementById("st").style.display='none';
+        document.getElementById("uns").style.display='';
+    }
+    function unst() {
+        document.getElementById("st").style.display='';
+        document.getElementById("uns").style.display='none';
     }
 </script>
 
